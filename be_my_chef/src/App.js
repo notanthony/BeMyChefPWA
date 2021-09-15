@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route, Link } from  'react-router-dom'
 
+import './styles/app.css'
 
 // Page Components
 import LoginPage from './components/pages/LoginPage'
