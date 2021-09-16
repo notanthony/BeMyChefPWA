@@ -14,7 +14,6 @@ import HomePage from './components/pages/HomePage'
 
 // Other Components
 import Header from './components/global/Header'
-import MyProfile from './components/pages/MyProfile'
 
 
 function App() {
