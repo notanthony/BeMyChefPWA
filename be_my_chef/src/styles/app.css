@@ -6,10 +6,11 @@ html {
 
 body{
     font-family: 'Gilda Display', serif;
+    height: 100vh;
 }
 
 .app-container{
-    height: 100vh;
+    height: 99vh;
     background: black;
     border: 8px solid rgb(238, 237, 225);
     color: rgb(238, 237, 225);

@@ -1,10 +1,6 @@
 .header{
     text-align: center;
-
-}
-
-.header-text{
-
+    width: 100%;
 }
 
 .header-img{
@@ -20,6 +16,7 @@
     margin: 0;
     padding: 0;
     margin-top: -3rem;
+    width: 100%;
 }
 
 .header-secondary{
