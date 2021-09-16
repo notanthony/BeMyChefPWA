@@ -27,7 +27,7 @@ function App() {
               <Route path='/login'>
                 <LoginPage />
               </Route>
-              <Route path='/survey'>
+              <Route path='/recipe'>
                 <RecipesPage />
               </Route>
               <Route path='/search'>
@@ -36,7 +36,7 @@ function App() {
               <Route path='/recipes'>
                 <SingleRecipe />
               </Route>
-              <Route path='/recipe'>
+              <Route path='/survey'>
                 <SurveryPage />
               </Route>
               <Route path='/'>
