@@ -3,6 +3,8 @@
     width: 100%;
 }
 
+
+
 .header-img{
     height: 5rem;
     width: 5rem;
@@ -25,7 +27,7 @@
 
 .header-title{
     font-size: 3.5rem;
-    margin-top: -0.5rem;
+    margin-top: 0.5rem;
     cursor: pointer;
     user-select: none;
 }
