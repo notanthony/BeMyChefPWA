@@ -1,0 +1,11 @@
+.survey-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.survey-header-card{
+    background: darkgray;
+    width: 70%;
+    color: black;
+}
