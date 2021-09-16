@@ -1,4 +1,33 @@
 .main-img{
     height: 20rem;
     width: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.homepage-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.welcome-text{
+    margin-bottom: -0.5rem;
+}
+
+.login-row{
+    margin-top: 4rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.login-icon{
+    cursor: pointer;
+}
+
+.login-icon:hover{
+    color: rgb(237, 231, 165);
 }
