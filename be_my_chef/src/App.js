@@ -10,43 +10,42 @@ import RecipesPage from './components/pages/RecipesPage'
 import SearchPage from './components/pages/SearchPage'
 import SingleRecipe from './components/pages/SingleRecipe'
 import SurveryPage from './components/pages/SurveyPage'
+import HomePage from './components/pages/HomePage'
 
 // Other Components
 import Header from './components/global/Header'
 
 
 function App() {
-
-
   return (
-    <BrowserRouter>
-      <Header />
-      <Switch>
-          <Route path="/" exact>
-              <h1>
-                from route
-              </h1>
-          </Route>
-          <Route path='/login'>
-            <LoginPage />
-          </Route>
-          <Route path='/survey'>
-            <RecipesPage />
-          </Route>
-          <Route path='/search'>
-            <SearchPage />
-          </Route>
-          <Route path='/recipes'>
-            <SingleRecipe />
-          </Route>
-          <Route path='/recipe'>
-            <SurveryPage />
-          </Route>
-          <Route path='/'>
-            <h1>404 Page not found</h1>
-          </Route>
-      </Switch>
-    </BrowserRouter>
+    <div className='app-container'>
+      <BrowserRouter>
+          <Switch>
+              <Route path="/" exact>
+                <HomePage />
+              </Route>
+              <Route path='/login'>
+                <LoginPage />
+              </Route>
+              <Route path='/survey'>
+                <RecipesPage />
+              </Route>
+              <Route path='/search'>
+                <SearchPage />
+              </Route>
+              <Route path='/recipes'>
+                <SingleRecipe />
+              </Route>
+              <Route path='/recipe'>
+                <SurveryPage />
+              </Route>
+              <Route path='/'>
+                <h1>404 Page not found</h1>
+              </Route>
+          </Switch>
+        </BrowserRouter>
+    </div>
+    
   );
 }
 

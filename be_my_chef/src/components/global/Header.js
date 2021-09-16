@@ -1,21 +1,26 @@
 import React from 'react'
-import { Link } from  'react-router-dom'
-import styled from 'styled-components'
+import { Link, useHistory } from 'react-router-dom'
 
-
+import '../../styles/header.css'
 
 export default function Header() {
 
-    return (
-        <div className="Header">
-        <h1>Be My Chef</h1>
-        <div style={{display: 'flex', justifyContent: 'space-between', width: '50%'}}>
-          <Link to='/login'> login</Link>
-          <Link to='/survey'> survey</Link>
-          <Link to='/search'> search</Link>
-          <Link to='/recipes'> recipes</Link>
-          <Link to='/recipe'> recipe</Link>
-        </div>
+  const history = useHistory()
+    
+  return (
+        <div className="header">
+          <h1 className='header-title' onClick={() => {
+                    history.push('/')
+                }}>
+            BE MY CHEF
+          </h1>
+
+          <div className='header-flex'>
+            <div className="pill"></div>
+            <h2 className='header-secondary'>La Tablée des Chefs</h2>
+            <div className="pill"></div>
+          </div>
+
     </div>
     )
 }

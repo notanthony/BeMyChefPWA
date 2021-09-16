@@ -1,0 +1,18 @@
+html {
+    max-width: 900px;
+    margin: 0 auto;
+    background: black;
+}
+
+body{
+    font-family: 'Gilda Display', serif;
+}
+
+.app-container{
+    height: 100vh;
+    background: black;
+    border: 8px solid rgb(238, 237, 225);
+    color: rgb(238, 237, 225);
+    padding: 1rem;
+    box-sizing: border-box;
+}
