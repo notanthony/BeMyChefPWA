@@ -31,3 +31,41 @@ export default function complexSearch(mealtype = "none", intolerances = "none", 
     })
     return null 
 }
+
+// ingredients search (minimum missing elements)
+// ingredients - array of ingredients
+export default function ingredientsSearch(ingredients) {
+    var str = "";
+    for(var i of ingredients) {
+        str += i + ", ";
+    }
+    var recipes;
+    $.ajax({
+        url: "https://api.spoonacular.com/recipes/findByIngredients?apiKey=e17b28ec56034c8e82ed9212db2c5e55&ingredients=" + str.slice(0, -2) + "&ranking=2",
+        //                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ update when needed!
+        success: function(res) {
+            recipes = res;
+            /* Tricky asynchronous functions - not figured out yet
+            for(var r of res) {
+                var missedIngredientsPrice = 0
+                // console.log(r)
+                for(var i of r.missedIngredients) {
+                    await $.ajax({
+                        url: "https://api.spoonacular.com/food/ingredients/" + i.id + "/information?apiKey=e17b28ec56034c8e82ed9212db2c5e55&amount=" + i.amount,
+                        success: function(res) {
+                            missedIngredientsPrice += res.estimatedCost.value
+                            console.log(res)
+                        }
+                    })
+                    console.log(res.estimatedCost.value)
+                }
+                console.log(missedIngredientsPrice)
+            };
+            
+            console.log(res)
+
+            */
+        }
+    })
+    return recipes;
+}
