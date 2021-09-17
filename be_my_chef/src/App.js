@@ -11,6 +11,7 @@ import SearchPage from './components/pages/SearchPage'
 import SingleRecipe from './components/pages/SingleRecipe'
 import SurveryPage from './components/pages/SurveyPage'
 import HomePage from './components/pages/HomePage'
+import MyProfile from './components/pages/MyProfile'
 
 // Other Components
 import Header from './components/global/Header'
@@ -38,6 +39,9 @@ function App() {
               </Route>
               <Route path='/survey'>
                 <SurveryPage />
+              </Route>
+              <Route path='/profile'>
+                <MyProfile />
               </Route>
               <Route path='/'>
                 <h1>404 Page not found</h1>

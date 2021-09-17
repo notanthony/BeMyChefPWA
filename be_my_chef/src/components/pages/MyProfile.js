@@ -1,11 +1,17 @@
 import React from 'react'
+<<<<<<< Updated upstream
 import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 import '../../styles/homepage.css'
 
+=======
+import '../../styles/default.css'
+import MainHeader from '../global/MainHeader'
+>>>>>>> Stashed changes
 
 export default function MyProfile(props) {
     
     return (
+<<<<<<< Updated upstream
         
         <View>
         <div className='homepage-flex'>
@@ -30,6 +36,11 @@ export default function MyProfile(props) {
             
             </ScrollView>
           
+=======
+        <div className='main-flex'>
+            <MainHeader />
+
+>>>>>>> Stashed changes
         </div>
         </View>
         

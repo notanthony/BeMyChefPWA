@@ -134,7 +134,7 @@ export default function SurveyPage() {
                     &&
                     <>
                 <div>
-                    <h1>What Cuisines Are You Intrested In?</h1>
+                    <h1 className='no-wrap-header'>What Cuisines Are You Intrested In?</h1>
                     <p>(Select all that apply)</p>
                 </div>
 
@@ -328,7 +328,7 @@ export default function SurveyPage() {
                     <h1>Go to My Profile {"->"} Survey</h1>
 
                     <div className='main-btn' onClick={() => {
-                    history.push('/')
+                    history.push('/profile')
                 }}>
                         Done
                     </div>
@@ -342,6 +342,16 @@ export default function SurveyPage() {
                     <div className='progress-bar'>
                         {
                             step >= 1 
+                            &&
+                            <div className='bar'></div>   
+                        }
+                        {
+                            step >= 2 
+                            &&
+                            <div className='bar'></div>
+                        }
+                        {
+                            step >= 3 
                             &&
                             <div className='bar'></div>
                         }
