@@ -31,3 +31,7 @@
 .login-icon:hover{
     color: rgb(237, 231, 165);
 }
+
+.profile-text{
+    text-align: center;
+}
