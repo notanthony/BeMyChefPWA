@@ -2,6 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Some command-line may help:
+
+npm install react-facebook-login
+
+npm i jsdom
+import jsdom from 'jsdom'
+
+npm i react-icons
+npm i react-facebook-login
+npm install react-google-login
+
+npm i react-snapshare
+
+npm i react-native-web
+npm i react-art
+npm i react-router-native
+
 ## Available Scripts
 
 In the project directory, you can run:
