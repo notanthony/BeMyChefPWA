@@ -39,33 +39,21 @@ export default function ingredientsSearch(ingredients) {
     for(var i of ingredients) {
         str += i + ", ";
     }
-    var recipes;
-    $.ajax({
-        url: "https://api.spoonacular.com/recipes/findByIngredients?apiKey=e17b28ec56034c8e82ed9212db2c5e55&ingredients=" + str.slice(0, -2) + "&ranking=2",
-        //                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ update when needed!
-        success: function(res) {
-            recipes = res;
-            /* Tricky asynchronous functions - not figured out yet
-            for(var r of res) {
-                var missedIngredientsPrice = 0
-                // console.log(r)
-                for(var i of r.missedIngredients) {
-                    await $.ajax({
-                        url: "https://api.spoonacular.com/food/ingredients/" + i.id + "/information?apiKey=e17b28ec56034c8e82ed9212db2c5e55&amount=" + i.amount,
-                        success: function(res) {
-                            missedIngredientsPrice += res.estimatedCost.value
-                            console.log(res)
-                        }
-                    })
-                    console.log(res.estimatedCost.value)
-                }
-                console.log(missedIngredientsPrice)
-            };
-            
-            console.log(res)
-
-            */
+    var recipes, ret = [];
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + str.slice(0, -2) + "&ranking=" + strategy+"&number=1")
+    .then(response => response.json())
+    .then(async data => {
+        recipes = data
+        for(var r of recipes) {
+            var missedIngredientsPrice = 0;
+            await Promise.all(r.missedIngredients.map(async i => {
+                await fetch("https://api.spoonacular.com/food/ingredients/" + i.id + "/information?apiKey=e17b28ec56034c8e82ed9212db2c5e55&amount=" + i.amount)
+                .then(response => response.json())
+                .then(data => {missedIngredientsPrice += data.estimatedCost.value})
+            }))
+            r.missedIngredientsPrice = missedIngredientsPrice;
+            ret.push(r);
         }
     })
-    return recipes;
+    return ret;
 }
