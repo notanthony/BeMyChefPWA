@@ -1,0 +1,17 @@
+.survey-btn{
+    font-size: 2rem;
+    border: 2px solid rgb(238, 237, 225);
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    color: rgb(238, 237, 225);
+
+}
+
+.survey-btn:active{
+    background: rgb(238, 237, 225);
+    color: black;
+
+}

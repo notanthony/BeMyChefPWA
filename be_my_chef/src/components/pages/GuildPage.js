@@ -5,7 +5,7 @@ import MainHeader from '../global/MainHeader'
 export default function GuildPage(props) {
     
     return (
-        <div className='main-flex'>
+        <div>
             <MainHeader />
 
         </div>
