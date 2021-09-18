@@ -13,6 +13,7 @@ import SurveryPage from './components/pages/SurveyPage'
 import HomePage from './components/pages/HomePage'
 import MyProfile from './components/pages/MyProfile'
 import GuildPage from './components/pages/GuildPage'
+import TipPage from './components/pages/TipPage'
 
 // Other Components
 import Header from './components/global/Header'
@@ -44,6 +45,9 @@ function App() {
               <Route path='/survey'>
                 <SurveryPage />
               </Route>
+              <Route path='/tip'>
+                <TipPage/>
+                </Route>
               <Route path='/profile'>
                 <MyProfile />
               </Route>
