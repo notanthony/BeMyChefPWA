@@ -6,20 +6,33 @@ export default function RecipesPage() {
     var recipe;
     // not yet tested
     // fetch('https://api.spoonacular.com/recipes/' + ? + '/information')
-    //    .then(res => recipe = res)
+    //    .then(response => response.json())
+    //    .then(data => recipe = data)
     // Just simulating the thing we may get from the API call
     recipe = {
+        "id": 716429,
         "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
         "image": "https://spoonacular.com/recipeImages/716429-556x370.jpg",
+        "imageType": "jpg",
+        "servings": 2,
         "readyInMinutes": 45,
+        "license": "CC BY-SA 3.0",
+        "sourceName": "Full Belly Sisters",
+        "sourceUrl": "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html",
+        "spoonacularSourceUrl": "https://spoonacular.com/pasta-with-garlic-scallions-cauliflower-breadcrumbs-716429",
+        "aggregateLikes": 209,
         "healthScore": 19.0,
+        "spoonacularScore": 83.0,
         "pricePerServing": 163.15,
+        "analyzedInstructions": [],
+        "cheap": false,
+        "creditsText": "Full Belly Sisters",
         "cuisines": [],
         "dairyFree": false,
         "diets": [],
         "gaps": "no",
         "glutenFree": false,
-        "instructions": "Put the garlic in a pan and then add the onion. Add some salt and oregano.",
+        "instructions": "",
         "ketogenic": false,
         "lowFodmap": false,
         "occasions": [],
@@ -29,6 +42,13 @@ export default function RecipesPage() {
         "veryHealthy": false,
         "veryPopular": false,
         "whole30": false,
+        "weightWatcherSmartPoints": 17,
+        "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+        ],
         "extendedIngredients": [
             {
                 "aisle": "Milk, Eggs, Other Dairy",
@@ -318,6 +338,28 @@ export default function RecipesPage() {
                 "unit": "cup"
             }
         ],
+        "summary": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire. One portion of this dish contains approximately <b>19g of protein </b>,  <b>20g of fat </b>, and a total of  <b>584 calories </b>. For  <b>$1.63 per serving </b>, this recipe  <b>covers 23% </b> of your daily requirements of vitamins and minerals. This recipe serves 2. It is brought to you by fullbellysisters.blogspot.com. 209 people were glad they tried this recipe. A mixture of scallions, salt and pepper, white wine, and a handful of other ingredients are all it takes to make this recipe so scrumptious. From preparation to the plate, this recipe takes approximately  <b>45 minutes </b>. All things considered, we decided this recipe  <b>deserves a spoonacular score of 83% </b>. This score is awesome. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/cauliflower-gratin-with-garlic-breadcrumbs-318375\">Cauliflower Gratin with Garlic Breadcrumbs</a>, < href=\"https://spoonacular.com/recipes/pasta-with-cauliflower-sausage-breadcrumbs-30437\">Pasta With Cauliflower, Sausage, & Breadcrumbs</a>, and <a href=\"https://spoonacular.com/recipes/pasta-with-roasted-cauliflower-parsley-and-breadcrumbs-30738\">Pasta With Roasted Cauliflower, Parsley, And Breadcrumbs</a>.",
+        "winePairing": {
+            "pairedWines": [
+                "chardonnay",
+                "gruener veltliner",
+                "sauvignon blanc"
+            ],
+            "pairingText": "Chardonnay, Gruener Veltliner, and Sauvignon Blanc are great choices for Pasta. Sauvignon Blanc and Gruner Veltliner both have herby notes that complement salads with enough acid to match tart vinaigrettes, while a Chardonnay can be a good pick for creamy salad dressings. The Buddha Kat Winery Chardonnay with a 4 out of 5 star rating seems like a good match. It costs about 25 dollars per bottle.",
+            "productMatches": [
+                {
+                    "id": 469199,
+                    "title": "Buddha Kat Winery Chardonnay",
+                    "description": "We barrel ferment our Chardonnay and age it in a mix of Oak and Stainless. Giving this light bodied wine modest oak character, a delicate floral aroma, and a warming finish.",
+                    "price": "$25.0",
+                    "imageUrl": "https://spoonacular.com/productImages/469199-312x231.jpg",
+                    "averageRating": 0.8,
+                    "ratingCount": 1.0,
+                    "score": 0.55,
+                    "link": "https://www.amazon.com/2015-Buddha-Kat-Winery-Chardonnay/dp/B00OSAVVM4?tag=spoonacular-20"
+                }
+            ]
+        },
     }
     var ingredientsList = [];
     for(var i of recipe.extendedIngredients) {
@@ -326,7 +368,8 @@ export default function RecipesPage() {
     var instructions;
     // not yet tested
     // fetch('https://api.spoonacular.com/recipes/analyzeInstructions?apiKey=e17b28ec56034c8e82ed9212db2c5e55&instructions=' + recipe.instructions, {method: 'POST'})
-    //    .then(res => instructions = res.parsedInstructions[0].steps)
+    //    .then(response => response.json())
+    //    .then(data => instructions = data.parsedInstructions[0].steps)
     // Just simulating the thing we may get from the API call
     instructions = {
         "parsedInstructions": [
@@ -409,12 +452,17 @@ export default function RecipesPage() {
     return (
         <div className='recipe-card'>
             <h2>{recipe.title}</h2>
+            <div style={{height: '100%', width: '100%'}}>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Servings<br/>{recipe.servings}</div>
+                <div style={{float: 'left', position: 'relative', width: '50%'}}>Ready in<br/>{recipe.readyInMinutes} min</div>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Health Score<br/>{recipe.healthScore}</div>
+            </div>
             <img 
                 src={recipe.image}
                 alt='icon'
                 className='main-img'
             />
-            <h3>You will need:</h3>
+            <h3>You will need...</h3>
             <ul>{ingredientsList.map(item => {return <li key={item}>{item}</li>;})}</ul>
             <h3>Instructions</h3>
             <ol>{instructions.map(item => {return <li key={item.number}>{item.step}</li>})}</ol>
@@ -432,4 +480,13 @@ export default function RecipesPage() {
         </div>
         
     )
+}
+
+function getMissingIngredientsText(ingredients) {
+    var str = "Hey, someone has just invited you to make a recipe with him. He is missing ingredients ";
+    for(var i = 0; i < ingredients.length - 2; ++i) {
+        str += ingredients[i].name + ", ";
+    }
+    str += "and " + ingredients[ingredients.length - 1].name + ". See the full recipe here: " + "<the link>";
+    return str;
 }
