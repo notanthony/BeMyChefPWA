@@ -1,10 +1,16 @@
 //import {ajax} from  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 
+function arrayToAPIString(arr) {
+    if (Array.isArray(arr)) {
+        return arr.join(",")
+    }
+    return arr
+  }
 
 export default function complexSearch(mealtype = "none", intolerances = "none", cuisine= "none", equipment="none", difficulty = 1){
     $.ajax({
-        url : "https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + mealtype +
-        "&intolerances=" + intolerances + "&cuisine=" + cuisine + "&equipment=" + equipment + "&maxReadyTime=60", 
+        url : "https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
+        "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&equipment=" + arrayToAPIString(equipment) + "&maxReadyTime=60", 
         success: function(res){
             var dict = res.results;
             //sorting in terms of the ready time, could be made more efficient if time permits
