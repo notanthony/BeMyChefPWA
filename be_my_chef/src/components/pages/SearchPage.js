@@ -3,6 +3,7 @@ import '../../styles/search.css'
 import MainHeader from '../global/MainHeader'
 import SearchField from "react-search-field";
 import SearchItem from '../global/SearchItem';
+import {ingredientsSearch, complexSearch} from '../../api'
 
 
 export default function SearchPage(props) {

@@ -1,4 +1,6 @@
-//import {ajax} from  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
 
 function arrayToAPIString(arr) {
     if (Array.isArray(arr)) {
@@ -7,7 +9,7 @@ function arrayToAPIString(arr) {
     return arr
   }
 
-export default function complexSearch(mealtype = "none", intolerances = "none", cuisine= "none", equipment="none", difficulty = 1){
+function complexSearch(mealtype = "none", intolerances = "none", cuisine= "none", equipment="none", difficulty = 1){
     $.ajax({
         url : "https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
         "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&equipment=" + arrayToAPIString(equipment) + "&maxReadyTime=60", 
@@ -40,7 +42,7 @@ export default function complexSearch(mealtype = "none", intolerances = "none", 
 
 // ingredients search (minimum missing elements)
 // ingredients - array of ingredients
-export default function ingredientsSearch(ingredients) {
+  async function ingredientsSearch(ingredients) {
     var str = "";
     for(var i of ingredients) {
         str += i + ", ";
@@ -63,3 +65,5 @@ export default function ingredientsSearch(ingredients) {
     })
     return ret;
 }
+
+export {ingredientsSearch, complexSearch}

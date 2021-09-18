@@ -27,10 +27,8 @@
 
 .main-flex{
     padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .survey-form{
