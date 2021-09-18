@@ -67,3 +67,19 @@
 .recipe-card > ul {
     text-align: left;
 }
+
+.share-row{
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.share-icon{
+    cursor: pointer;
+}
+
+.share-icon:hover{
+    color: rgb(237, 231, 165);
+}
