@@ -46,7 +46,7 @@ export default function ingredientsSearch(ingredients) {
         str += i + ", ";
     }
     var recipes, ret = [];
-    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + str.slice(0, -2) + "&ranking=" + strategy+"&number=1")
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + str.slice(0, -2) + "&ranking=2&number=1")
     .then(response => response.json())
     .then(async data => {
         recipes = data

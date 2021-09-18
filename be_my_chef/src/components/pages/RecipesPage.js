@@ -454,7 +454,8 @@ export default function RecipesPage() {
             <h2>{recipe.title}</h2>
             <div style={{height: '100%', width: '100%'}}>
                 <div style={{float: 'left', position: 'relative', width: '25%'}}>Servings<br/>{recipe.servings}</div>
-                <div style={{float: 'left', position: 'relative', width: '50%'}}>Ready in<br/>{recipe.readyInMinutes} min</div>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Ready in<br/>{recipe.readyInMinutes} min</div>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Cost<br/>{recipe.pricePerServing <= 200 ? "$" : recipe.pricePerServing <= 2000 ? "$$" : "$$$"}</div>
                 <div style={{float: 'left', position: 'relative', width: '25%'}}>Health Score<br/>{recipe.healthScore}</div>
             </div>
             <img 
@@ -466,6 +467,12 @@ export default function RecipesPage() {
             <ul>{ingredientsList.map(item => {return <li key={item}>{item}</li>;})}</ul>
             <h3>Instructions</h3>
             <ol>{instructions.map(item => {return <li key={item.number}>{item.step}</li>})}</ol>
+            <h3>Diet and Allergy Information</h3>
+            <div style={{float: 'left', position: 'relative', width: '100%'}}>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Dairy Free<br/>{recipe.dairyFree ? "Yes" : "No"}</div>
+                <div style={{float: 'left', position: 'relative', width: '50%'}}>Gluten Free<br/>{recipe.glutenFree ? "Yes" : "No"}</div>
+                <div style={{float: 'left', position: 'relative', width: '25%'}}>Vegetarian<br/>{recipe.vegetarian ? "Yes" : "No"}</div>
+            </div>
         <div className='share-row'>
             <SnapShareButton
                 url="https://notanthony.github.io/LTDC/"
