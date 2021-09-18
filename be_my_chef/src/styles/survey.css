@@ -32,6 +32,7 @@
 
 .survey-form{
     max-height: 45vh;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -108,7 +109,7 @@
     width: 80%;
     margin-bottom: 1rem;
     margin-top: 2rem;
-    padding-top: 1rem;
+    box-sizing: border-box;
 }
 
 .radio-form > div{

@@ -20,11 +20,12 @@ export default function MainHeader() {
     function hideDropdown(){
         setBtnVisibility(false)
     }
-    document.addEventListener('click', (e) =>{
-        if (btnVisibility && e.target.id !== 'dropdown'){
-            setBtnVisibility(false)
-        }
-    })
+
+    // document.addEventListener('click', (e) =>{
+    //     if (btnVisibility && e.target.id !== 'dropdown'){
+    //         setBtnVisibility(false)
+    //     }
+    // })
 
     const history = useHistory()
 
