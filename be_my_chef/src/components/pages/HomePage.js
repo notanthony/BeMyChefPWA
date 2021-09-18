@@ -4,7 +4,7 @@ import '../../styles/homepage.css'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GoogleLogin from 'react-google-login';
 import { Link, useHistory } from 'react-router-dom'
-import {FaInstagram, FaGoogle, FaFacebookF} from 'react-icons/fa'
+import {FaGoogle, FaFacebookF} from 'react-icons/fa'
 
 export default function HomePage() {
     fetch('https://api.spoonacular.com/recipes/637876/summary?apiKey=e17b28ec56034c8e82ed9212db2c5e55')
