@@ -32,7 +32,11 @@ export default function MainHeader() {
     return (
         <div className='header-div'> 
             <Link to='/'>
-            <img src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand' alt='icon'>
+            <img 
+                className='header-img'
+                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand' 
+                alt='icon'
+            >
             </img>
             </Link>
             <Link className='header-btn' to='/profile'>

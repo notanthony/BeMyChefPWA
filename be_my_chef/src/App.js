@@ -13,6 +13,7 @@ import SurveryPage from './components/pages/SurveyPage'
 import HomePage from './components/pages/HomePage'
 import MyProfile from './components/pages/MyProfile'
 import GuildPage from './components/pages/GuildPage'
+import TipPage from './components/pages/TipPage'
 
 // Other Components
 import Header from './components/global/Header'
@@ -58,6 +59,7 @@ function App() {
               <Route path='/search'>
                 <SearchPage 
                   preferences={preferenceObj}
+                  searchType='complex'
                 />
               </Route>
               <Route path='/recipes'>
@@ -70,6 +72,9 @@ function App() {
                   preferences={preferenceObj}
                 />
               </Route>
+              <Route path='/tip'>
+                <TipPage/>
+                </Route>
               <Route path='/profile'>
                 <MyProfile 
                   preferences={preferenceObj}

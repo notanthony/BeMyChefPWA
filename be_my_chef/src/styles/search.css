@@ -1,0 +1,43 @@
+.search-btn-bar{
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+    justify-content: space-evenly;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.search-dropdown-btn{
+    box-sizing: border-box;
+    border: 2px solid white;
+    width: 10rem;
+    margin: 0.25rem;
+    text-align: center;
+    font-size: 1.4rem;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.extra-padding{
+    border: 2px solid white;
+    border-radius: 0.25rem;
+    width: 90%;
+}
+
+.main-flex{
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.survey-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 0.5rem;
+    margin-left: 0.5rem;
+    padding-top: 0rem;
+    width: 100%;
+}

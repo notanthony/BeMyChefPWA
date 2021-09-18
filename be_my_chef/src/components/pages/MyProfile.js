@@ -1,13 +1,14 @@
 import React from 'react'
-import '../../styles/default.css'
+import '../../styles/profile.css'
 import MainHeader from '../global/MainHeader'
 import RecipesPage from './RecipesPage'
+import {Link} from 'react-router-dom'
 
 export default function MyProfile(props) {
     const { preferences } = props
     console.log(preferences)
     return (
-        <div className='main-flex'>
+        <div>
             <MainHeader />
             <div className='scrollable-div'>
                 <h1>Profile Name</h1>

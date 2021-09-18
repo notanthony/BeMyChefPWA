@@ -1,10 +1,29 @@
+.survey-btn{
+    font-size: 2rem;
+    border: 2px solid rgb(238, 237, 225);
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    color: rgb(238, 237, 225);
+
+}
+
+.survey-btn:active{
+    background: rgb(238, 237, 225);
+    color: black;
+
+}
+
 .main-flex{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 0;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    height: 80vh;
 }
 
 .profile-img{

@@ -1,6 +1,6 @@
 import React from 'react'
 import { SnapShareButton } from '../global/Share';
-import ShareButton from '../global/ShareButton'
+import ShareButton from '../global/Share'
 
 export default function RecipesPage() {
     var recipe;
@@ -490,10 +490,10 @@ export default function RecipesPage() {
 }
 
 function getMissingIngredientsText(ingredients, link) {
-    var str = "Hey, someone has just invited you to make a recipe with him. He is missing ingredients ";
-    for(var i = 0; i < ingredients.length - 2; ++i) {
-        str += ingredients[i].name + ", ";
+    var str = "Someone has just invited you to cook with them! They are missing the following ingredients: \n";
+    for(var i = 0; i < ingredients.length; ++i) {
+        str += "☐ " + ingredients[i].name + "\n";
     }
-    str += "and " + ingredients[ingredients.length - 1].name + ". See the full recipe here: " + link;
+    str += "See the full recipe here: " + link;
     return str;
 }
