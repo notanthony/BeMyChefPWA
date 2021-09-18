@@ -1,28 +1,30 @@
 import React from 'react'
-import '../../styles/homepage.css'
+import '../../styles/default.css'
+import MainHeader from '../global/MainHeader'
+import RecipesPage from './RecipesPage'
 
-
-export default function MyProfile() {
-    
+export default function MyProfile(props) {
+    const { preferences } = props
+    console.log(preferences)
     return (
-        <div className='homepage-flex'>
-            <h2 className='welcome-text'>J Y</h2>
-            <img 
-                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand'
-                alt='user_pic'
-                className='main-img'
-            >
-            </img>
-            <h2 className='welcome-text'>J Y</h2>
-            <p>I love to cook in my free time</p>
-            <div>
-            <h2 className='profile-text'>J LIKED RECIPES</h2>
-            <img 
-                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand'
-                alt='recipe_pic'
-                className='main-img'
-            ></img>
+        <div className='main-flex'>
+            <MainHeader />
+            <div className='scrollable-div'>
+                <h1>Profile Name</h1>
+                <img className='profile-img' alt='profile img' src='https://i.imgur.com/vzIo9qz.jpeg'>
+                </img>
+                <h3 className='profile-desc'>
+                    I love to cook in my free time.<br/> My favorite foods are broccoli and cherries.
+                </h3>
+                <div className='favorites-div'>
+                    <h1>Profile's Liked Recipes</h1>
+                    <div className='recipes-display'>
+                        <RecipesPage />
+                    </div>
+                </div>
             </div>
         </div>
+        
+        
     )
 }

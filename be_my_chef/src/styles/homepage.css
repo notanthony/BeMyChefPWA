@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    padding: 1rem;
 }
 
 .welcome-text{
@@ -17,7 +18,7 @@
 }
 
 .login-row{
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: flex;
     width: 100%;
     flex-direction: row;

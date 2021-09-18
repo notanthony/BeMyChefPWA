@@ -2,10 +2,132 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
 .survey-header-card{
-    background: darkgray;
+    background: #333;
     width: 70%;
+    color: white;
+    text-align: center;
+    
+}
+
+.survey-header-card > h3 {
+    font-weight: 300;
+}
+
+.survey-rotary{
+    height: 100%;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.survey-form{
+    max-height: 45vh;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    overflow-y: scroll;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+.survey-form > div > label{
+    font-size: 2rem;
+}
+
+.survey-form > div > input{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.survey-form > div{
+    margin-bottom: 1rem;
+}
+
+.btn-bar{
+    width: 90%;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
     color: black;
+    justify-content: space-evenly;
+}
+
+.btn-bar > div{
+    background: rgb(238, 237, 225);
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    border: 2px solid rgb(238, 237, 225);
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+}
+
+.progress-bar{
+    width: 18rem;
+    height: 0.5rem;
+    border: 2px solid gray;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.main-btn{
+    font-size: 3rem;
+    margin-top: 6rem;
+    border: 2px solid rgb(238, 237, 225);
+    padding: 0.5rem 4rem;
+    width: 70%;
+    user-select: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.radio-form > div > label{
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.radio-form{
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    overflow-y: scroll;
+    width: 80%;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    box-sizing: border-box;
+}
+
+.radio-form > div{
+    margin-bottom: 1rem;
+}
+
+.header-main{
+    font-size: 4rem;
+}
+
+.bar{
+    width: 6rem;
+    background: gray;
+    height: 0.5rem;
+    
+    box-sizing: border-box;
+}
+
+.no-wrap-header{
+    white-space: nowrap;
 }

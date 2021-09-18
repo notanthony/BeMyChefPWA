@@ -28,7 +28,10 @@ export default function HomePage() {
             <div className='login-row'>
                 <FacebookLogin
                 appId="3092110447685911"
-                onSuccess= {()=>  history.push('/survey')}
+                onSuccess= {()=>  {
+                    alert('success')
+                    history.push('/survey')
+                }}
                 callback={null}
                 render={renderProps => (
                     <FaFacebookF onClick={renderProps.onClick} size={70} className='login-icon'></FaFacebookF>

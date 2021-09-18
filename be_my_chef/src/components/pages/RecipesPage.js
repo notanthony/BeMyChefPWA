@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import { SnapShareButton } from '../global/Share';
+import ShareButton from '../global/ShareButton'
 
 export default function RecipesPage() {
     var recipe;
@@ -406,10 +407,8 @@ export default function RecipesPage() {
         ]
     }.parsedInstructions[0].steps
     return (
-        <div>
-            From ./components/pages/RecipesPage
+        <div className='recipe-card'>
             <h2>{recipe.title}</h2>
-            <ScrollView>
             <img 
                 src={recipe.image}
                 alt='icon'
@@ -419,7 +418,17 @@ export default function RecipesPage() {
             <ul>{ingredientsList.map(item => {return <li key={item}>{item}</li>;})}</ul>
             <h3>Instructions</h3>
             <ol>{instructions.map(item => {return <li key={item.number}>{item.step}</li>})}</ol>
-            </ScrollView>
+        <div className='share-row'>
+            <SnapShareButton
+                url="https://notanthony.github.io/LTDC/"
+            />
+            <ShareButton
+                text="Share your recipes with your friends!"
+                title="Be My Chef App"
+                url="https://notanthony.github.io/LTDC/"
+            />
+
+        </div>
         </div>
         
     )

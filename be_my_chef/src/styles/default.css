@@ -1,0 +1,85 @@
+.main-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-img{
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+}
+
+.profile-desc{
+    font-weight: 400;
+    text-align: center;
+    width: 80%;
+    height: 5rem;
+    
+}
+
+.scrollable-div{
+    display: flex;
+    align-items:  center;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: calc(100vh - 12px - 8rem);
+    
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.recipes-display{
+    display: flex;
+    width: 80%;
+
+}
+
+.favorites-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-card{
+    border: 2px solid white;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+    background: rgb(238, 237, 225);
+    font-weight: 500;
+}
+
+.recipe-card > ol{
+    text-align: left;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.recipe-card > ul {
+    text-align: left;
+}
+
+.share-row{
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.share-icon{
+    cursor: pointer;
+}
+
+.share-icon:hover{
+    color: rgb(237, 231, 165);
+}
