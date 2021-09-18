@@ -12,6 +12,7 @@ import SingleRecipe from './components/pages/SingleRecipe'
 import SurveryPage from './components/pages/SurveyPage'
 import HomePage from './components/pages/HomePage'
 import MyProfile from './components/pages/MyProfile'
+import GuildPage from './components/pages/GuildPage'
 
 // Other Components
 import Header from './components/global/Header'
@@ -24,6 +25,9 @@ function App() {
           <Switch>
               <Route path="/" exact>
                 <HomePage />
+              </Route>
+              <Route path='/guild' exact>
+                <GuildPage />
               </Route>
               <Route path='/login'>
                 <LoginPage />

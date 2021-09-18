@@ -47,3 +47,38 @@ img{
 .header-btn:active{
     border: 2px solid black;
 }
+
+.btn-dropdown{
+    position: fixed;
+    height: 10rem;
+    width: 10rem;
+    background: #444;
+    transform: translate(-2.2rem, 1rem);
+    font-size: 1rem;
+    z-index: 2;
+    color:rgb(238, 237, 225) !important;
+}
+
+.btn-dropdown-triangle{
+    position: fixed;
+    height: 2rem;
+    width: 2rem;
+    background: #444;
+    transform: translateX(1.6rem) rotate(45deg) ;
+    z-index: 1;
+}
+.dotted-bar{
+    height: 0;
+    
+    border-top: 0.25rem dotted black;
+    margin: -0.5rem 1rem;
+}
+
+.dropdown-btn{
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+.dropdown-btn:hover{
+    background: #888;
+}

@@ -406,10 +406,8 @@ export default function RecipesPage() {
         ]
     }.parsedInstructions[0].steps
     return (
-        <div>
-            From ./components/pages/RecipesPage
+        <div className='recipe-card'>
             <h2>{recipe.title}</h2>
-            <ScrollView>
             <img 
                 src={recipe.image}
                 alt='icon'
@@ -419,7 +417,6 @@ export default function RecipesPage() {
             <ul>{ingredientsList.map(item => {return <li key={item}>{item}</li>;})}</ul>
             <h3>Instructions</h3>
             <ol>{instructions.map(item => {return <li key={item.number}>{item.step}</li>})}</ol>
-            </ScrollView>
         </div>
         
     )
