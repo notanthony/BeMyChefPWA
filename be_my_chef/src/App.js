@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route, Link } from  'react-router-dom'
 
@@ -19,15 +19,35 @@ import Header from './components/global/Header'
 
 
 function App() {
+  const [ searchQueries, setSearchQueries ] = useState({
+    intolerances: [],
+    cuisine: []
+  })
+
+  const setPreferences= function(intolerances, cuisine){ 
+    setSearchQueries({
+      intolerances: [...intolerances],
+      cuisine: [...cuisine]
+    })
+  }
+
+  const preferenceObj = {
+    data: searchQueries,
+    setPreferences: setPreferences
+  }
+
+
   return (
     <div className='app-container'>
       <BrowserRouter>
           <Switch>
               <Route path="/" exact>
-                <HomePage />
+                <HomePage 
+                  preferences={preferenceObj}
+                />
               </Route>
               <Route path='/guild' exact>
-                <GuildPage />
+                <GuildPage  />
               </Route>
               <Route path='/login'>
                 <LoginPage />
@@ -36,16 +56,24 @@ function App() {
                 <RecipesPage />
               </Route>
               <Route path='/search'>
-                <SearchPage />
+                <SearchPage 
+                  preferences={preferenceObj}
+                />
               </Route>
               <Route path='/recipes'>
-                <SingleRecipe />
+                <SingleRecipe 
+                  preferences={preferenceObj}
+                />
               </Route>
               <Route path='/survey'>
-                <SurveryPage />
+                <SurveryPage 
+                  preferences={preferenceObj}
+                />
               </Route>
               <Route path='/profile'>
-                <MyProfile />
+                <MyProfile 
+                  preferences={preferenceObj}
+                />
               </Route>
               <Route path='/'>
                 <h1>404 Page not found</h1>

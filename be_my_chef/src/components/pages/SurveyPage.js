@@ -3,9 +3,14 @@ import '../../styles/survey.css'
 import {SnapShareButton} from '../global/Share'
 import { Link, useHistory } from 'react-router-dom'
 
-export default function SurveyPage() {
+export default function SurveyPage(props) {
     
+    const { preferences } = props
+
     const [ step, setStep ] = useState(0)
+    const [ intolerancesArr, setIntolerancesArr ] = useState([])
+    const [ cuisinesArr, setCuisinesArr ] = useState([])
+    const [ school, setSchool ] = useState()
 
     // 0 - start survey
     // 1 - dietary restrictions
@@ -23,6 +28,46 @@ export default function SurveyPage() {
     }
     
     const history = useHistory()
+
+    const submitIntolerances = async function(){
+        let intolerances = []
+        let checkboxes = document.getElementsByName('intolerances');
+        checkboxes.forEach((c) => {
+            if (c.checked) intolerances.push(c.value)
+
+        })
+        
+        await setIntolerancesArr(intolerances)
+        console.log(intolerancesArr)
+    }
+
+    const submitSchool = function(){
+
+    }
+
+    const submitCuisine =  async function(){
+        let cuisines = []
+        let checkboxes = document.getElementsByName('cuisines');
+        checkboxes.forEach((c) => {
+            if (c.checked) cuisines.push(c.value)
+        })
+        await setCuisinesArr(cuisines)
+        console.log(cuisinesArr)
+    }
+
+    const handleNext = async function(e){
+        e.preventDefault()
+        switch (step){
+            case 1:
+                await submitIntolerances()
+                break;
+            case 2: 
+                await submitCuisine()
+                break;
+            default: 
+        }
+
+    }
 
     return (
         <div className='survey-main'>
@@ -52,75 +97,123 @@ export default function SurveyPage() {
                     <p>(Select all that apply)</p>
                 </div>
 
-                <form className='survey-form' onSubmit={null}>
+                <form className='survey-form' >
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='dairy'
+                        ></input>
                         <label>
                             {"  "}Dairy
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='egg'
+                        ></input>
                         <label>
                             {"  "}Egg
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='gluten'
+                        ></input>
                         <label>
                             {"  "}Gluten
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='grain'
+                        ></input>
                         <label>
                             {"  "}Grain
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='peanut'
+                        ></input>
                         <label>
                             {"  "}Peanut
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='seafood'
+                        ></input>   
                         <label>
                             {"  "}Seafood
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input
+                            name='intolerances' 
+                            type='checkbox'
+                            value='sesame'
+                        ></input>
                         <label>
                             {"  "}Sesame
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='shellfish'
+                        ></input>
                         <label>
                             {"  "}Shellfish
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='soy'
+                        ></input>
                         <label>
                             {"  "}Soy
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='sulfite'
+                        ></input>
                         <label>
                             {"  "}Sulfite
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='intolerances'
+                            type='checkbox'
+                            value='tree nut'
+                        ></input>
                         <label>
                             {"  "}Tree Nut
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                        <input
+                            name='intolerances' 
+                            type='checkbox'
+                            value='wheat'
+                        ></input>
                         <label>
                             {"  "}Wheat
                         </label>
@@ -138,75 +231,123 @@ export default function SurveyPage() {
                     <p>(Select all that apply)</p>
                 </div>
 
-                <form className='survey-form' onSubmit={null}>
+                <form className='survey-form' >
                     <div>
-                        <input type='checkbox'></input>
+                        <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='african'
+                        ></input>
                         <label>
                             {"  "}African
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='american'
+                        ></input>
                         <label>
                             {"  "}American
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='cajun'
+                        ></input>
                         <label>
                             {"  "}Cajun
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='caribbean'
+                        ></input>
                         <label>
                             {"  "}Caribbean
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='chinese'
+                        ></input>
                         <label>
                             {"  "}Chinese
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='french'
+                        ></input>
                         <label>
                             {"  "}French
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='greek'
+                        ></input>
                         <label>
                             {"  "}Greek
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='indian'
+                        ></input>
                         <label>
                             {"  "}Indian
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='italian'
+                        ></input>
                         <label>
                             {"  "}Italian
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='japanese'
+                        ></input>
                         <label>
                             {"  "}Japanese
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='korean'
+                        ></input>
                         <label>
                             {"  "}Korean
                         </label>
                     </div>
                     <div>
-                        <input type='checkbox'></input>
+                    <input 
+                            name='cuisines'
+                            type='checkbox'
+                            value='mexican'
+                        ></input>
                         <label>
                             {"  "}Mexican
                         </label>
@@ -328,8 +469,9 @@ export default function SurveyPage() {
                     <h1>Go to My Profile {"->"} Survey</h1>
 
                     <div className='main-btn' onClick={() => {
-                    history.push('/profile')
-                }}>
+                        preferences.setPreferences(intolerancesArr, cuisinesArr)
+                        history.push('/profile')
+                    }}>
                         Done
                     </div>
 
@@ -357,10 +499,22 @@ export default function SurveyPage() {
                         }
                     </div>
                     <div className='btn-bar'>
-                        <div onClick={()=>{prevStep()}}>
+                        <div 
+                            onClick={(e)=>{
+                                
+                                handleNext(e)
+                                prevStep()
+                            }}
+                        >
                             Prev
                         </div>
-                        <div onClick={()=>{nextStep()}}>
+                        <div 
+                            onClick={(e)=>{
+                                
+                                handleNext(e)
+                                nextStep()
+                            }}
+                        >
                             Next
                         </div>
                     </div>

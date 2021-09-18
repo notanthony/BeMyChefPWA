@@ -4,7 +4,8 @@ import MainHeader from '../global/MainHeader'
 import RecipesPage from './RecipesPage'
 
 export default function MyProfile(props) {
-    
+    const { preferences } = props
+    console.log(preferences)
     return (
         <div className='main-flex'>
             <MainHeader />
