@@ -59,6 +59,7 @@ function App() {
               <Route path='/search'>
                 <SearchPage 
                   preferences={preferenceObj}
+                  searchType='complex'
                 />
               </Route>
               <Route path='/recipes'>
