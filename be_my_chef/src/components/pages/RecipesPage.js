@@ -482,11 +482,11 @@ export default function RecipesPage() {
     )
 }
 
-function getMissingIngredientsText(ingredients) {
+function getMissingIngredientsText(ingredients, link) {
     var str = "Hey, someone has just invited you to make a recipe with him. He is missing ingredients ";
     for(var i = 0; i < ingredients.length - 2; ++i) {
         str += ingredients[i].name + ", ";
     }
-    str += "and " + ingredients[ingredients.length - 1].name + ". See the full recipe here: " + "<the link>";
+    str += "and " + ingredients[ingredients.length - 1].name + ". See the full recipe here: " + link;
     return str;
 }
