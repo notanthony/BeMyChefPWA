@@ -6,6 +6,9 @@ function arrayToAPIString(arr) {
     return arr
   }
 
+// function complexSearch(){
+//     $.ajax({
+//         url : , 
 // function complexSearch(mealtype = "none", intolerances = "none", cuisine= "none", equipment="none", difficulty = 1){
 //     $.ajax({
 //         url : "https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
@@ -37,15 +40,20 @@ function arrayToAPIString(arr) {
 //     return null 
 // }
 
+async function complexSearch(mealtype = [], intolerances = [], cuisine = [], equipment = []) {
+    var ret;
+    await fetch("https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
+    "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&equipment=" + arrayToAPIString(equipment) + "&maxReadyTime=60")
+    .then(response => response.json())
+    .then(data => ret = data.results)
+    return ret;
+}
+
 // ingredients search (minimum missing elements)
 // ingredients - array of ingredients
-  async function ingredientsSearch(ingredients) {
-    var str = "";
-    for(var i of ingredients) {
-        str += i + ", ";
-    }
+async function ingredientsSearch(ingredients) {
     var recipes, ret = [];
-    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + str.slice(0, -2) + "&ranking=2&number=1")
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + ingredients + "&ranking=2&number=1")
     .then(response => response.json())
     .then(async data => {
         recipes = data
@@ -60,7 +68,8 @@ function arrayToAPIString(arr) {
             ret.push(r);
         }
     })
+    console.log(ret)
     return ret;
 }
 
-export {ingredientsSearch}
+export {ingredientsSearch, complexSearch}

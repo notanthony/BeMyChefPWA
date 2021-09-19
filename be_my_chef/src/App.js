@@ -206,6 +206,12 @@ function App() {
                   searchType='complex'
                 />
               </Route>
+              <Route path='/search2'>
+                <SearchPage 
+                  preferences={preferenceObj}
+                  searchType='ingredients'
+                />
+              </Route>
               <Route path='/recipes'>
                 <SingleRecipe 
                   preferences={preferenceObj}
