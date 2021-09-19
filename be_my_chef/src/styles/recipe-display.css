@@ -1,0 +1,10 @@
+.recipe-display{
+    display: flex;
+    width: 100%;
+    border: 2px solid white;
+    align-items: center;
+}
+
+.info-display{
+    margin-left: 1rem;
+}

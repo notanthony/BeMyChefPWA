@@ -1,20 +1,17 @@
 
 import React from 'react'
-
+import '../../styles/recipe-display.css'
 export default function RecipeDisplay(props) {
-    const {recipe} = props
+    const {image, title, missedIngredientsPrice} = props
   return (
-        <div>
-            <div style={{float: 'left', position: 'relative', width: '25%'}}>
+        <div className='recipe-display'>
                 <img 
-                    src={recipe.image}
+                    src={image}
                     alt='icon'
-                    align='left'
                 />
-            </div>
-            <div style={{float: 'left', position: 'relative', width: '75%'}}>
-            <h2>{recipe.title}</h2>
-            <p>Total price of missing ingredients: {recipe.missedIngredientsPrice} cents</p>
+            <div className='info-display'>
+            <h2>{title}</h2>
+            <p>Total price of missing ingredients: ${(missedIngredientsPrice/100).toFixed(2)}</p>
             </div>
         </div>
     )

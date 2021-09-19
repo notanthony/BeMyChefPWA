@@ -43,3 +43,24 @@
     padding-top: 0rem;
     width: 100%;
 }
+
+.recipes-display{
+    border: 2px solid white;
+    width: 100%;
+    display: flex;
+    height: 2rem;
+    color: white;
+    flex-direction: column;
+    margin-left: 3.5rem;
+    overflow-y: scroll;
+    height: 70vh;
+}
+
+.smaller-display{
+    height: 64vh !important;
+}
+
+.hide-overflow{
+    overflow-y: scroll;
+    height: 96vh;
+}
