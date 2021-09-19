@@ -214,7 +214,7 @@ export default function RecipesPage(props) {
 }
 
 function getMissingIngredientsText(ingredientsStr) {
-   const ingredients = ingredientsStr.split(",")
+   var ingredients = ingredientsStr.split(",")
     var str = "Someone has just invited you to cook with them! They are missing the following ingredients: \n";
     for(var i = 0; i < ingredients.length; ++i) {
         str += "☐ " + ingredients[i].name + "\n";

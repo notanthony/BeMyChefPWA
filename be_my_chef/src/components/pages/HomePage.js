@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className='homepage-flex'>
             <Header />
             <img 
-                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand'
+                src='https://i.imgur.com/lJjO8cV.png'
                 alt='icon'
                 className='main-img'
             >
