@@ -71,7 +71,7 @@ export default function MainHeader() {
                         <p 
                             className='dropdown-btn'
                             onClick={() => {
-                                history.push('/search')
+                                history.push('/search2')
                                 hideDropdown()
                             }}
                         >

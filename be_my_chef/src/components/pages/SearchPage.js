@@ -66,6 +66,7 @@ export default function SearchPage(props) {
         <div>
             <MainHeader />
             {
+                
                 (props.searchType == 'complex')
                 &&
                 <div className='main-flex-search'>
@@ -73,7 +74,6 @@ export default function SearchPage(props) {
                         placeholder= "Enter the recipe name"
                         onEnter={props.searchfunction}
                         onSearchClick={props.searchfunction}
-                        searchText="This is initial search text"
                         classNames="test-class"
                     />
                     <div className='search-btn-bar'>
@@ -166,6 +166,20 @@ export default function SearchPage(props) {
 
                             }
                     </div> 
+                </div>
+            }
+            {
+                
+                (props.searchType == 'ingredients')
+                &&
+                <div className='main-flex-search'>
+                    <label>Enter the ingredients you have</label>
+                    <SearchField
+                        placeholder= "apple,flour,sugar,etc."
+                        onEnter={(value, event) => ingredientsSearch(value, event)}
+                        onSearchClick={(value) => ingredientsSearch(value)}
+                        classNames="test-class"
+                    />
                 </div>
             }
         </div>
