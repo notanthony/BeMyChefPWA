@@ -1,0 +1,79 @@
+.guild-title{
+    font-size: 1.5rem;
+    width: 70%;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+
+}
+
+.guild-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.place-display{
+    height: 5rem;
+    width: 34rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.medal-display{
+    height: 8rem;
+    width: 8rem;
+    background: turquoise;
+    margin-top: 2rem;
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.score-info-div{
+    width: 24rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-top: 2rem;
+    padding-left: 2rem;
+    background: #777;
+    color: white;
+    border-radius: 0.5rem;
+    transform: translateX(-2rem);
+    z-index: 0;
+}
+
+.score-info-div > h2{
+    margin-top: 1rem;
+}
+
+.trophy-img{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+}
+
+.leaderboard-btn{
+    background: rgb(45, 145, 135);
+    color: white;
+    margin-top: 4rem;
+    padding: 0.5rem 5rem;
+    font-size: 2rem;
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.leaderboard-btn:active{
+    color: black;
+    background-color: turquoise;
+}
+
+.guild-activity{
+    overflow-y: scroll;
+}

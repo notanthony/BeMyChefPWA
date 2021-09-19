@@ -78,8 +78,19 @@ const schools = [
     id: 11,
     name: "John Rennie High School",
     points: 0
+  },
+  {
+    id: 12,
+    name: "Aime Renaud High School",
+    points: 0
+  },
+  {
+    id: 13,
+    name: "Beurling Academy",
+    points: 0
   }
 ]
+
 
 function App() {
   const [ searchQueries, setSearchQueries ] = useState({
@@ -88,6 +99,11 @@ function App() {
   })
 
   const [ guilds, setGuilds ] = useState(schools)
+  const [ guild, setGuild ] = useState({
+    name: '',
+    points: 0,
+    place: '1st'
+  })
 
   const setPreferences= function(intolerances, cuisine){ 
     setSearchQueries({
@@ -96,32 +112,70 @@ function App() {
     })
   }
 
+  const [ schoolId, setSchoolId] = useState()
+
+  const setSchool = function(id){
+    setSchoolId(id)
+    for (let i = 0; i < guilds.length; i++){
+      if (guilds[i].id == id){
+        setGuild({
+          name: guilds[i].name,
+          points: guild.points,
+          place: guild.place
+        })
+      } 
+    }
+  }
+
   const preferenceObj = {
     data: searchQueries,
     setPreferences: setPreferences,
     guilds: guilds,
-    addScore: addScore
+    addScore: addScore,
+    schoolId: schoolId,
+    setSchool: setSchool,
+    guild: guild
   }
 
   function addScore(guildId, scoreToAdd){
-    let tempArr = [...guilds]
     let newArr = []
 
-    guilds.forEach((guild) => {
-      if (guild.id !== guildId){
-        newArr.push(guild)
+    guilds.forEach((g) => {
+      if (g.id !== guildId){
+        newArr.push(g)
       }
       else {
         newArr.push({
+          name: g.name,
+          id: g.id,
+          points: g.points + scoreToAdd
+        })
+        setGuild({
           name: guild.name,
-          id: guild.id,
-          points: guild.points + scoreToAdd
+          points: g.points + scoreToAdd,
+          place: guild.place
         })
       }
     })
     
     setGuilds(newArr)
 
+    let place = 1;
+    for (let i = 0; i < guilds.length; i++){
+      if (guilds[i].points > guild.points){
+        place ++ 
+      }
+    }
+    if (place == 1) place = '1st'
+    else if (place == 2) place = '2nd'
+    else if (place == 3) place = '3rd'
+    else place = '' + place + 'th'
+
+    setGuild({
+      name: guild.name,
+      points: guild.points,
+      place: guild.place
+    })
   }
 
   return (
@@ -133,8 +187,12 @@ function App() {
                   preferences={preferenceObj}
                 />
               </Route>
-              <Route path='/guild' exact>
-                <GuildPage  />
+              <Route 
+                path='/guild'
+                
+              >
+                <GuildPage  
+                preferences={preferenceObj}/>
               </Route>
               <Route path='/login'>
                 <LoginPage />

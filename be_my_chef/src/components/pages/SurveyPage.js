@@ -41,8 +41,14 @@ export default function SurveyPage(props) {
         console.log(intolerancesArr)
     }
 
-    const submitSchool = function(){
-
+    const submitSchool = async function(){
+        let radios = document.getElementsByName('school')
+        radios.forEach(async (r) => {
+            if (r.checked){
+                const id = r.value.substring(7)
+                await setSchool(id)
+            }
+        })
     }
 
     const submitCuisine =  async function(){
@@ -63,6 +69,9 @@ export default function SurveyPage(props) {
                 break;
             case 2: 
                 await submitCuisine()
+                break;
+            case 3:
+                await submitSchool()
                 break;
             default: 
         }
@@ -365,92 +374,144 @@ export default function SurveyPage(props) {
                         <p></p>
                     </div>
                     <div className='survey-form radio-form'>
+                        
                         <div>
-                            <input type='radio' name='school'></input>
-                            <label>
-                                {"  "}Selwyn House School
-                            </label>
-                        </div>
-                        <div>
-                            <input type='radio' name='school'></input>
+                            <input 
+                                type='radio' 
+                                name='school'
+                                value='school-12'
+                            >
+                            </input>
                             <label>
                                 {"  "}Aime Renaud High School
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-13'
+                            ></input>
                             <label>
                                 {"  "}Beurling Academy
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-1'
+                            ></input>
                             <label>
                                 {"  "}Collège Jean-Eudes
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-1'
+                            ></input>
                             <label>
                                 {"  "}Collège Regina Assumpta
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-2'
+                            ></input>
                             <label>
                                 {"  "}École internationale de Montréal
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-3'
+                            ></input>
                             <label>
                                 {"  "}École secondaire Eulalie-Durocher
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-4'
+                            ></input>
                             <label>
                                 {"  "}Emmanuel Christian School, Quebec
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-5'
+                            ></input>
                             <label>
                                 {"  "}Greaves Adventist Academy
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-6'
+                            ></input>
                             <label>
                                 {"  "}Kells Academy
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-7'
+                            ></input>
                             <label>
                                 {"  "}Lindsay Place High School
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-8'
+                            ></input>
                             <label>
                                 {"  "}James Lyng High School
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-9'
+                            ></input>
                             <label>
                                 {"  "}École Maïmonide
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-10'
+                            ></input>
                             <label>
                                 {"  "}Marymount Academy
                             </label>
                         </div>
                         <div>
-                            <input type='radio' name='school'></input>
+                        <input 
+                                type='radio' 
+                                name='school'
+                                value='school-11'
+                            ></input>
                             <label>
                                 {"  "}John Rennie High School
                             </label>
@@ -469,6 +530,8 @@ export default function SurveyPage(props) {
                     <h1>Go to My Profile {"->"} Survey</h1>
 
                     <div className='main-btn' onClick={() => {
+
+                        preferences.setSchool(school)
                         preferences.setPreferences(intolerancesArr, cuisinesArr)
                         history.push('/profile')
                     }}>
