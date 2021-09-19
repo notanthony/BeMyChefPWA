@@ -2,11 +2,39 @@ import React, { Component } from "react";
 import  {Snapshare} from "react-snapshare";
 import { RWebShare } from "react-web-share";
 import '../../styles/homepage.css'
-import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost} from 'react-icons/fa'
-
+import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost, FaStar} from 'react-icons/fa'
 const snapstyle = {
   cursor: 'pointer',
   size: '70px'
+}
+
+class LikeButton extends React.Component {
+  constructor(){
+         super();
+
+         this.state = {
+              black: true
+         }
+    }
+
+    changeColor(){
+        this.setState({black: !this.state.black})
+    }
+
+    render(){
+        let btn_class = this.state.black ? "blackButton" : "whiteButton";
+
+        return (
+             <div>
+                 <FaStar className={btn_class}
+                 size='70px'
+                         onClick={this.changeColor.bind(this)}>
+                           Button
+                          
+                  </FaStar>
+             </div>
+        )
+    }
 }
 
 function SnapShareButton(props){
@@ -65,5 +93,6 @@ function InviteButton(props) {
 export {
   SnapShareButton,
   ShareButton,
-  InviteButton
+  InviteButton,
+  LikeButton
 }

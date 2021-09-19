@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {recipeFromId} from '../../api'
 import MainHeader from '../global/MainHeader'
 import '../../styles/recipe-display.css'
-import { SnapShareButton,ShareButton,InviteButton} from '../global/Share';
-import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost} from 'react-icons/fa'
+import { SnapShareButton,ShareButton,InviteButton, LikeButton} from '../global/Share';
 
 
 
@@ -514,6 +513,9 @@ export default function RecipesPage(props) {
                 <div style={{float: 'left', position: 'relative', width: '25%'}}>Vegetarian<br/>{recipe.vegetarian ? "Yes" : "No"}</div>
             </div>
         <div className='share-row'>
+            <LikeButton
+                
+            />
             <SnapShareButton
                 url="https://notanthony.github.io/LTDC/"
             />

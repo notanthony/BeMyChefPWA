@@ -36,3 +36,15 @@
 .profile-text{
     text-align: center;
 }
+.button{
+    width: 80px;
+    height: 40px;
+    margin: 15px;
+  }
+  .blackButton{
+    color: black
+  }
+  
+  .whiteButton{
+    color: yellow;
+  }
