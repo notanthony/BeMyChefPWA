@@ -1,17 +1,31 @@
 import React, { Component } from "react";
-import { Snapshare } from "react-snapshare";
+import  {Snapshare} from "react-snapshare";
 import { RWebShare } from "react-web-share";
 import '../../styles/homepage.css'
-import {FaShareAltSquare, FaUserPlus} from 'react-icons/fa'
+import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost} from 'react-icons/fa'
 
-class SnapShareButton extends Component {
-  render() {
-    return (
-      <Snapshare
-        dataShareUrl={this.props.url}
+const snapstyle = {
+  cursor: 'pointer',
+  size: '70px'
+}
+
+function SnapShareButton(props){
+  return (
+    <div>
+      <FaSnapchatGhost 
+        size='70px'
+        style={snapstyle}
+        onClick={() =>{
+          window.open(
+            'https://www.snapchat.com/scan?attachmentUrl=https%3A%2F%2Fnotanthony.github.io%2FLTDC%2F',
+            "", 
+            "width=600,height=500"
+          
+          ) 
+        }}
       />
-    );
-  }
+    </div>
+  )
 }
 
 function ShareButton(props) {

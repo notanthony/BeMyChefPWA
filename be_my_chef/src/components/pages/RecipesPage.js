@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { SnapShareButton } from '../global/Share';
-import ShareButton from '../global/Share'
 import {recipeFromId} from '../../api'
 import MainHeader from '../global/MainHeader'
 import '../../styles/recipe-display.css'
 import { SnapShareButton,ShareButton,InviteButton} from '../global/Share';
+import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost} from 'react-icons/fa'
+
 
 
 export default function RecipesPage(props) {
@@ -22,7 +22,7 @@ export default function RecipesPage(props) {
         .then(() => {
             let tempArr = []
             console.log(recipe)
-            if (!recipe || !recipe.extendedIngredients){
+            if (recipe == null || !recipe.extendedIngredients){
                 setTimeout(() => {
                     for(var i of recipe.extendedIngredients) {
                         tempArr.push(i.original);
@@ -49,12 +49,22 @@ export default function RecipesPage(props) {
 
 
     function getInstructions(){
-        let re = new RegExp("/</?[^/>]+(/>|$)/g")
-        let arr = recipe.instructions.replace(/<[^>]*>?/gm, '').split('.')
-        console.log(arr)
-        arr.pop()
-        setInstructions(arr)
-        console.log(instructions)
+        if (recipe && recipe.instructions){
+            let re = new RegExp("/</?[^/>]+(/>|$)/g")
+            let arr = recipe.instructions.replace(/<[^>]*>?/gm, '').split('.')
+            arr.pop()
+            setInstructions(arr)
+        }
+        else{
+            setTimeout(() => {
+                let re = new RegExp("/</?[^/>]+(/>|$)/g")
+                let arr = recipe.instructions.replace(/<[^>]*>?/gm, '').split('.')
+                arr.pop()
+                setInstructions(arr)
+            }, 1000)
+        }
+
+
         // fetch('https://api.spoonacular.com/recipes/analyzeInstructions?apiKey=1afbf3eddf2d44bab179cb3a31666387&instructions=' + recipe.instructions, {method: 'POST'})
         // .then(response => response.json())
         // .then(data => {
