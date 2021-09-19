@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../../styles/search.css'
 import MainHeader from '../global/MainHeader'
 import SearchField from "react-search-field";
@@ -6,17 +6,19 @@ import SearchItem from '../global/SearchItem';
 import SearchBar from '../global/SearchBar'
 import {ingredientsSearch, complexSearch} from '../../api'
 import {Route} from  'react-router-dom'
+import RecipeDisplay from '../global/RecipeDisplay'
 
 export default function SearchPage(props) {
     console.log(props.preferences.data.intolerances)
     const [dropdown, setDropdown ] = useState(0)
-    const [result, setResult] = useState()
+    const [result, setResult] = useState([])
 
     const [intolerancesArr, setIntolerancesArr] = useState(props.preferences.data.intolerances)
     const [cuisinesArr, setCuisinesArr ] = useState(props.preferences.data.cuisine)
     const [mealTypeArr, setMealTypeArr] = useState([])
     const [searchState, setSearchState] = useState('')
     const [searchState1, setSearchState1] = useState('')
+
 
     function updateSearchState(){
         console.log('test')
@@ -117,7 +119,7 @@ export default function SearchPage(props) {
     }
 
     return (
-        <div>
+        <div className='hide-overflow'>
             <MainHeader />
             {
                 
@@ -246,10 +248,50 @@ export default function SearchPage(props) {
                         handleSubmit={async () => {
                             console.log(searchState1)
                             setResult(await ingredientsSearch(searchState1))
+                            console.log('result')
+                            console.log(result)
                         }}
                     />
 
                 </div>
+            }
+            {
+                
+                (props.searchType == 'ingredients')
+                &&
+                <div className='recipes-display'>
+                {
+                    result.map((res) => (
+                        <RecipeDisplay 
+                            image={res.image}
+                            title={res.title}
+                            missedIngredientsPrice={res.missedIngredientsPrice}
+
+                        />
+                    ))
+
+                }
+            </div>
+            }
+
+            {
+                
+                (props.searchType == 'complex')
+                &&
+                <div 
+                className='recipes-display smaller-display'>
+                {
+                    result.map((res) => (
+                        <RecipeDisplay 
+                            image={res.image}
+                            title={res.title}
+                            missedIngredientsPrice={res.missedIngredientsPrice}
+
+                        />
+                    ))
+
+                }
+            </div>
             }
         </div>
 

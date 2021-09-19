@@ -67,7 +67,7 @@ async function recipeInformation(id) {
 // ingredients - array of ingredients
 async function ingredientsSearch(ingredients) {
     var recipes, ret = [];
-    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=4995577f7d2b4f4d83adf858ceacd89b&ingredients=" + ingredients + "&ranking=2&number=1")
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=4995577f7d2b4f4d83adf858ceacd89b&ingredients=" + ingredients + "&ranking=2&number=5")
     .then(response => response.json())
     .then(async data => {
         recipes = data
