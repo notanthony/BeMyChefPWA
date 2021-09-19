@@ -9,8 +9,47 @@ import {Route} from  'react-router-dom'
 export default function SearchPage(props) {
     console.log(props.preferences.data.intolerances)
     const [dropdown, setDropdown ] = useState(0)
-    
     const [result, setResult] = useState()
+
+    const [intolerancesArr, setIntolerancesArr] = useState(props.preferences.data.intolerances)
+    const [cuisinesArr, setCuisinesArr ] = useState(props.preferences.data.cuisine)
+    const [mealTypeArr, setMealTypeArr] = useState([])
+
+    function intoleranceChange(){
+        let arr1 = []
+        let box1 = document.getElementsByName('intolerances')
+
+        box1.forEach((b) => {
+            if (b.checked) arr1.push(b.value)
+        })        
+
+
+        console.log(arr1)
+        setIntolerancesArr(arr1)
+
+    }
+
+    function cuisinesChange(){
+        let box2 = document.getElementsByName('cuisine')
+        let arr2 = []
+        box2.forEach((b) => {
+            if (b.checked) arr2.push(b.value)
+        })
+
+        console.log(arr2)
+        setCuisinesArr(arr2)
+    }
+
+    function mealTypeChange(){
+        let box3 = document.getElementsByName('mealType')
+        let arr3 = []
+        box3.forEach((b) => {
+            if (b.checked) arr3.push(b.value)
+        })
+        console.log(arr3)
+        setMealTypeArr(arr3)
+    }
+
     const mealTypes = [
         "main course",
         "side dish",
@@ -75,9 +114,11 @@ export default function SearchPage(props) {
                     <SearchField
                         placeholder= "Enter the recipe name"
                         onEnter={ async (value, event) => {
-                            setResult(await complexSearch(value, event))
+                           
+                            console.log('>')
+                            setResult(await complexSearch(value, mealTypeArr, intolerancesArr, cuisinesArr, event))
                         }}
-                        onEnter={ async (value) => {
+                        onSearchClick={ async (value) => {
                             setResult(await complexSearch(value))
                         }}
                         classNames="test-class"
@@ -93,7 +134,7 @@ export default function SearchPage(props) {
                                 dropdown == 1
                                 &&
                                 <div className='extra-padding'>
-                                    <form className='survey-form'>
+                                    <form className='survey-form' onChange={() => intoleranceChange()}>
                                     {
                                         intolerances.map((t) => (
                                             <SearchItem
@@ -103,7 +144,7 @@ export default function SearchPage(props) {
                                             label={
                                                 t.charAt(0).toUpperCase() + t.slice(1)
                                             }
-                                            checked={props.preferences.data.intolerances.indexOf(t) !== -1}
+                                            checked={intolerancesArr.indexOf(t) !== -1}
                                         />
                                         ))
 
@@ -121,7 +162,7 @@ export default function SearchPage(props) {
                                 dropdown == 2
                                 &&
                                 <div className='extra-padding'>
-                                    <form className='survey-form'>
+                                    <form className='survey-form' onChange={() => cuisinesChange()}>
                                     {
                                         cuisines.map((t) => (
                                             <SearchItem
@@ -131,7 +172,7 @@ export default function SearchPage(props) {
                                             label={
                                                 t.charAt(0).toUpperCase() + t.slice(1)
                                             }
-                                            checked={props.preferences.data.cuisine.indexOf(t) !== -1}
+                                            checked={cuisinesArr.indexOf(t) !== -1}
 
                                         />
                                         ))
@@ -153,7 +194,7 @@ export default function SearchPage(props) {
                                 dropdown == 3
                                 &&
                                 <div className='extra-padding'>
-                                    <form className='survey-form'>
+                                    <form className='survey-form' onChange={() => mealTypeChange()}>
                                     {
                                         mealTypes.map((t) => (
                                             <SearchItem
@@ -163,6 +204,8 @@ export default function SearchPage(props) {
                                             label={
                                                 t.charAt(0).toUpperCase() + t.slice(1)
                                             }
+                                            checked={mealTypeArr.indexOf(t) !== -1}
+
                                         />
                                         ))
 
@@ -185,7 +228,7 @@ export default function SearchPage(props) {
                         onEnter={ async (value, event) => {
                             setResult(await ingredientsSearch(value, event))
                         }}
-                        onEnter={ async (value) => {
+                        onClick={ async (value) => {
                             setResult(await ingredientsSearch(value))
                         }}
                         classNames="test-class"

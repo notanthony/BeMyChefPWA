@@ -49,6 +49,7 @@ async function complexSearch(query, mealtype, intolerances, cuisine) {
     "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&maxReadyTime=60")
     .then(response => response.json())
     .then(data => ret = data.results)
+    console.log(ret)
     return ret;
 }
 
