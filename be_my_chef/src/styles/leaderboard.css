@@ -1,0 +1,39 @@
+.leaderboard-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leaderboard-flex > h2{
+    margin-top: -0.5rem;
+}
+
+.leaderboard-main{
+    border: 2px solid white;
+    width: 90%;
+    text-align: center;
+    overflow-y: scroll;
+    height: 70vh;
+
+}
+
+.leaderboard-flex-item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.leaderboard-flex-item> h2{
+    margin-left: 1rem;
+}
+
+.leaderboard-item{
+    border: 1px solid white;
+    width: 100%;
+}
+
+.leaderboard-item > p{
+    text-align: left;
+    margin: -0.5rem 5rem 0rem 1rem;
+}

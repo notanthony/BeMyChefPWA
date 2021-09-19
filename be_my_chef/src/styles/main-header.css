@@ -83,3 +83,9 @@
 .dropdown-btn:hover{
     background: #888;
 }
+
+.circle-link{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+}

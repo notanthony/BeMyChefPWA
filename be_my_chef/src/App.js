@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route, Link } from  'react-router-dom'
 
@@ -14,80 +14,82 @@ import HomePage from './components/pages/HomePage'
 import MyProfile from './components/pages/MyProfile'
 import GuildPage from './components/pages/GuildPage'
 import TipPage from './components/pages/TipPage'
+import Leaderboard from './components/pages/Leaderboard'
 
 // Other Components
 import Header from './components/global/Header'
+
 
 const schools = [
   {
     id: 0,
     name: "Collège Jean-Eudes",
-    points: 0
+    points: 1
   },
   {
     id: 1,
     name: "Collège Regina Assumpta",
-    points: 0
+    points: 2
   },
   {
     id: 2,
     name: "École internationale de Montréal",
-    points: 0
+    points: 3
   },
   {
     id: 3,
     name:  "École secondaire Eulalie-Durocher",
-    points: 0
+    points: 6
   },
   {
     id: 4,
     name: "Emmanuel Christian School, Quebec",
-    points: 0
+    points: 84
   },
   {
     id: 5,
     name: "Greaves Adventist Academy",
-    points: 0
+    points: 4
   },
   {
     id: 6,
     name: "Kells Academy",
-    points: 0
+    points: 544
   },
   {
     id: 7,
     name: "Lindsay Place High School",
-    points: 0
+    points: 12
   },
   {
     id: 8,
     name: "James Lyng High School",
-    points: 0
+    points: 23
   },
   {
     id: 9,
     name: "École Maïmonide",
-    points: 0
+    points: 21
   },
   {
     id: 10,
     name: "Marymount Academy",
-    points: 0
+    points: 11
   },
   {
     id: 11,
     name: "John Rennie High School",
-    points: 0
+    points: 676
   },
   {
     id: 12,
     name: "Aime Renaud High School",
-    points: 0
+    points: 1212
   },
   {
     id: 13,
     name: "Beurling Academy",
-    points: 0
+    points: 3
   }
 ]
 
@@ -102,8 +104,10 @@ function App() {
   const [ guild, setGuild ] = useState({
     name: '',
     points: 0,
-    place: '1st'
+    place: '1st',
+    id: ''
   })
+
 
   const setPreferences= function(intolerances, cuisine){ 
     setSearchQueries({
@@ -121,7 +125,8 @@ function App() {
         setGuild({
           name: guilds[i].name,
           points: guild.points,
-          place: guild.place
+          place: guild.place,
+          id: id
         })
       } 
     }
@@ -194,6 +199,13 @@ function App() {
                 <GuildPage  
                 preferences={preferenceObj}/>
               </Route>
+              <Route path='/leaderboard'>
+                  <Leaderboard 
+                      guilds={guilds}
+                      schoolId={schoolId}
+                      guild={guild}
+                  />
+              </Route>
               <Route path='/login'>
                 <LoginPage />
               </Route>
@@ -212,17 +224,24 @@ function App() {
                   searchType='ingredients'
                 />
               </Route>
-              <Route path='/recipes'>
-                <SingleRecipe 
-                  preferences={preferenceObj}
-                />
-              </Route>
+              <Route exact path='/recipes/:id'
+                render={(props) => {
+                  return (
+                    <RecipesPage 
+                      preferences={preferenceObj}
+                      recipeId={props.match.params.id}
+                    />
+                  )
+                }}                                                
+              />
+                
+
               <Route path='/survey'>
                 <SurveryPage 
                   preferences={preferenceObj}
                 />
               </Route>
-              <Route path='/tip'>
+              <Route path='/tips'>
                 <TipPage/>
                 </Route>
               <Route path='/profile'>

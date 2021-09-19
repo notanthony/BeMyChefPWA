@@ -31,10 +31,10 @@ export default function MainHeader() {
 
     return (
         <div className='header-div'> 
-            <Link to='/'>
+            <Link to='/tips' className='circle-link'>
             <img 
                 className='header-img'
-                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand' 
+                src='https://cdn.discordapp.com/attachments/887007873803116589/888955830358143056/SmallLogo.png' 
                 alt='icon'
             >
             </img>

@@ -265,6 +265,7 @@ export default function SearchPage(props) {
                         <RecipeDisplay 
                             image={res.image}
                             title={res.title}
+                            res={res}
                             missedIngredientsPrice={res.missedIngredientsPrice}
 
                         />
@@ -286,7 +287,7 @@ export default function SearchPage(props) {
                             image={res.image}
                             title={res.title}
                             missedIngredientsPrice={res.missedIngredientsPrice}
-
+                            res={res}
                         />
                     ))
 

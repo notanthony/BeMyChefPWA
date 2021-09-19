@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import '../../styles/tip.css'
 import MainHeader from '../global/MainHeader'
+import {Link} from 'react-router-dom'
 
 export default function TipPage(props) {
 
@@ -21,12 +22,15 @@ export default function TipPage(props) {
    
     return (
         <div className='page-flex'>
-            <img 
-                className='img'
-                src='https://i.imgur.com/fe3m6vx_d.webp?maxwidth=760&fidelity=grand'
-                alt='icon'
-            >
-            </img>
+            
+            <Link to='/profile'>
+                <img 
+                    className='img'
+                    src='https://cdn.discordapp.com/attachments/887007873803116589/888955830358143056/SmallLogo.png'
+                    alt='icon'
+                ></img>
+            </Link>
+            
            <h2 className='tip-text'>
                RANDOM COOKING TIP!
             </h2>

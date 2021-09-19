@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MainHeader from '../global/MainHeader'
 import '../../styles/guild.css'
 import { ingredientsSearch } from '../../api'
+import { Link } from 'react-router-dom'
 
 export default function GuildPage(props) {
     console.log(props.preferences)
@@ -89,9 +90,9 @@ export default function GuildPage(props) {
                         </h2>
                     </div>
                 </div>
-                <div className='leaderboard-btn'>
+                <Link className='leaderboard-btn' to='/leaderboard'>
                     View Leaderboard
-                </div>
+                </Link>
                 <div className='guild-activity'>
                     <h1>Recent Activity</h1>
 
