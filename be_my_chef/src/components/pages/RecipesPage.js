@@ -1,6 +1,5 @@
 import React from 'react'
-import { SnapShareButton } from '../global/Share';
-import ShareButton from '../global/Share'
+import { SnapShareButton,ShareButton,InviteButton} from '../global/Share';
 
 export default function RecipesPage() {
     var recipe;
@@ -482,8 +481,9 @@ export default function RecipesPage() {
                 title="Be My Chef App"
                 url="https://notanthony.github.io/LTDC/"
             />
-            <ShareButton
-                text="Share your recipes with your friends!"
+            <InviteButton
+            //hardcode for now
+                text={getMissingIngredientsText("abc,123,you,i,and")}
                 title="Be My Chef App"
                 url="https://notanthony.github.io/LTDC/"
             />
@@ -494,11 +494,11 @@ export default function RecipesPage() {
     )
 }
 
-function getMissingIngredientsText(ingredients, link) {
+function getMissingIngredientsText(ingredientsStr) {
+   const ingredients = ingredientsStr.split(",")
     var str = "Someone has just invited you to cook with them! They are missing the following ingredients: \n";
     for(var i = 0; i < ingredients.length; ++i) {
         str += "☐ " + ingredients[i].name + "\n";
     }
-    str += "See the full recipe here: " + link;
     return str;
 }
