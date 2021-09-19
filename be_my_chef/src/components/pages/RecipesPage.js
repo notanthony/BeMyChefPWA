@@ -8,11 +8,335 @@ import {FaShareAltSquare, FaUserPlus, FaSnapchatGhost} from 'react-icons/fa'
 
 
 export default function RecipesPage(props) {
-    const [ recipe, setRecipe ] = useState(null)
+    const [ recipe, setRecipe ] = useState({
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": false,
+        "dairyFree": false,
+        "veryHealthy": false,
+        "cheap": false,
+        "veryPopular": false,
+        "sustainable": false,
+        "weightWatcherSmartPoints": 8,
+        "gaps": "no",
+        "lowFodmap": false,
+        "aggregateLikes": 53,
+        "spoonacularScore": 40,
+        "healthScore": 4,
+        "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+        "license": "CC BY 3.0",
+        "sourceName": "Foodista",
+        "pricePerServing": 62.27,
+        "extendedIngredients": [
+            {
+                "id": 5006,
+                "aisle": "Meat",
+                "image": "whole-chicken.jpg",
+                "consistency": "solid",
+                "name": "chicken",
+                "nameClean": "whole chicken",
+                "original": "2 pounds chicken",
+                "originalString": "2 pounds chicken",
+                "originalName": "chicken",
+                "amount": 2,
+                "unit": "pounds",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 2,
+                        "unitShort": "lb",
+                        "unitLong": "pounds"
+                    },
+                    "metric": {
+                        "amount": 907.185,
+                        "unitShort": "g",
+                        "unitLong": "grams"
+                    }
+                }
+            },
+            {
+                "id": 20081,
+                "aisle": "Baking",
+                "image": "flour.png",
+                "consistency": "solid",
+                "name": "flour",
+                "nameClean": "wheat flour",
+                "original": "3/4 cup flour",
+                "originalString": "3/4 cup flour",
+                "originalName": "flour",
+                "amount": 0.75,
+                "unit": "cup",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 0.75,
+                        "unitShort": "cups",
+                        "unitLong": "cups"
+                    },
+                    "metric": {
+                        "amount": 177.441,
+                        "unitShort": "ml",
+                        "unitLong": "milliliters"
+                    }
+                }
+            },
+            {
+                "id": 2047,
+                "aisle": "Spices and Seasonings",
+                "image": "salt.jpg",
+                "consistency": "solid",
+                "name": "salt",
+                "nameClean": "salt",
+                "original": "2 teaspoons salt",
+                "originalString": "2 teaspoons salt",
+                "originalName": "salt",
+                "amount": 2,
+                "unit": "teaspoons",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 2,
+                        "unitShort": "tsps",
+                        "unitLong": "teaspoons"
+                    },
+                    "metric": {
+                        "amount": 2,
+                        "unitShort": "tsps",
+                        "unitLong": "teaspoons"
+                    }
+                }
+            },
+            {
+                "id": 2028,
+                "aisle": "Spices and Seasonings",
+                "image": "paprika.jpg",
+                "consistency": "solid",
+                "name": "paprika",
+                "nameClean": "paprika",
+                "original": "1 teaspoon paprika",
+                "originalString": "1 teaspoon paprika",
+                "originalName": "paprika",
+                "amount": 1,
+                "unit": "teaspoon",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    },
+                    "metric": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    }
+                }
+            },
+            {
+                "id": 1002030,
+                "aisle": "Spices and Seasonings",
+                "image": "pepper.jpg",
+                "consistency": "solid",
+                "name": "pepper",
+                "nameClean": "black pepper",
+                "original": "1 teaspoon pepper",
+                "originalString": "1 teaspoon pepper",
+                "originalName": "pepper",
+                "amount": 1,
+                "unit": "teaspoon",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    },
+                    "metric": {
+                        "amount": 1,
+                        "unitShort": "tsp",
+                        "unitLong": "teaspoon"
+                    }
+                }
+            },
+            {
+                "id": 1230,
+                "aisle": "Milk, Eggs, Other Dairy",
+                "image": "buttermilk.jpg",
+                "consistency": "solid",
+                "name": "buttermilk",
+                "nameClean": "buttermilk",
+                "original": "1 cup buttermilk",
+                "originalString": "1 cup buttermilk",
+                "originalName": "buttermilk",
+                "amount": 1,
+                "unit": "cup",
+                "meta": [],
+                "metaInformation": [],
+                "measures": {
+                    "us": {
+                        "amount": 1,
+                        "unitShort": "cup",
+                        "unitLong": "cup"
+                    },
+                    "metric": {
+                        "amount": 236.588,
+                        "unitShort": "ml",
+                        "unitLong": "milliliters"
+                    }
+                }
+            },
+            {
+                "id": 4513,
+                "aisle": "Oil, Vinegar, Salad Dressing",
+                "image": "vegetable-oil.jpg",
+                "consistency": "liquid",
+                "name": "vegetable oil",
+                "nameClean": "vegetable oil",
+                "original": "Vegetable oil (enough to cover chicken), about 1 quart",
+                "originalString": "Vegetable oil (enough to cover chicken), about 1 quart",
+                "originalName": "Vegetable oil (enough to cover chicken), about 1 quart",
+                "amount": 1,
+                "unit": "serving",
+                "meta": [
+                    "to cover chicken), 1 quart"
+                ],
+                "metaInformation": [
+                    "to cover chicken), 1 quart"
+                ],
+                "measures": {
+                    "us": {
+                        "amount": 1,
+                        "unitShort": "serving",
+                        "unitLong": "serving"
+                    },
+                    "metric": {
+                        "amount": 1,
+                        "unitShort": "serving",
+                        "unitLong": "serving"
+                    }
+                }
+            }
+        ],
+        "id": 640803,
+        "title": "Crispy Buttermilk Fried Chicken",
+        "readyInMinutes": 45,
+        "servings": 6,
+        "sourceUrl": "https://www.foodista.com/recipe/G2QDD6GF/crispy-buttermilk-fried-chicken",
+        "image": "https://spoonacular.com/recipeImages/640803-556x370.jpg",
+        "imageType": "jpg",
+        "summary": "Forget going out to eat or ordering takeout every time you crave Southern food. Try making Crispy Buttermilk Fried Chicken at home. One portion of this dish contains roughly <b>16g of protein</b>, <b>15g of fat</b>, and a total of <b>260 calories</b>. For <b>62 cents per serving</b>, this recipe <b>covers 9%</b> of your daily requirements of vitamins and minerals. This recipe serves 6. 53 people found this recipe to be delicious and satisfying. This recipe from Foodista requires vegetable oil, buttermilk, salt, and paprika. It works best as a main course, and is done in roughly <b>around 45 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 38%</b>, which is rather bad. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-912357\">Crispy Buttermilk Fried Chicken</a>, <a href=\"https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-32074\">Crispy Buttermilk Fried Chicken</a>, and <a href=\"https://spoonacular.com/recipes/crispy-oven-fried-buttermilk-chicken-244810\">Crispy Oven Fried Buttermilk Chicken</a>.",
+        "cuisines": [
+            "Southern"
+        ],
+        "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+        ],
+        "diets": [],
+        "occasions": [],
+        "winePairing": {
+            "pairedWines": [
+                "riesling",
+                "sparkling wine",
+                "zinfandel"
+            ],
+            "pairingText": "Riesling, Sparkling Wine, and Zinfandel are great choices for Fried Chicken. In general, there are a few rules that will help you pair wine with southern food. Food-friendly riesling or sparkling white wine will work with many fried foods, while zinfandel is great with barbecued fare. The Schloss Vollrads Riesling Spatlese with a 4 out of 5 star rating seems like a good match. It costs about 29 dollars per bottle.",
+            "productMatches": [
+                {
+                    "id": 441216,
+                    "title": "Schloss Vollrads Riesling Spatlese",
+                    "description": "Classic natural sweet Spatlese with nice acidity and elegant, natural residual sugar. Selective harvest, gentle processing of the must, systematic clarification, slow fermentation and careful finishing are the basics for this traditional Vollrads' Riesling.This wine pairs perfectly with Asian cuisine due to the harmony of sweetness and acidity. Also interesting taste combinations can be achieved through the pairing of blue-veined cheese or a fruit dessert.",
+                    "price": "$28.99",
+                    "imageUrl": "https://spoonacular.com/productImages/441216-312x231.jpg",
+                    "averageRating": 0.8,
+                    "ratingCount": 6,
+                    "score": 0.7473684210526317,
+                    "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fschloss-vollrads-riesling-spatlese-2014%2F153988"
+                }
+            ]
+        },
+        "instructions": "Mix flour, salt, paprika and pepper. Dip chicken in buttermilk and then into flour mixture. Cook chicken in oil, starting on medium-high heat, then, when chicken is browned, reduce heat to medium and cook an additional 30 to 35 minutes until chicken is done (approx 150-155 degrees F internal), turning occasionally.",
+        "analyzedInstructions": [
+            {
+                "name": "",
+                "steps": [
+                    {
+                        "number": 1,
+                        "step": "Mix flour, salt, paprika and pepper. Dip chicken in buttermilk and then into flour mixture. Cook chicken in oil, starting on medium-high heat, then, when chicken is browned, reduce heat to medium and cook an additional 30 to 35 minutes until chicken is done (approx 150-155 degrees F internal), turning occasionally.",
+                        "ingredients": [
+                            {
+                                "id": 1230,
+                                "name": "buttermilk",
+                                "localizedName": "buttermilk",
+                                "image": "buttermilk.jpg"
+                            },
+                            {
+                                "id": 5006,
+                                "name": "whole chicken",
+                                "localizedName": "whole chicken",
+                                "image": "whole-chicken.jpg"
+                            },
+                            {
+                                "id": 2028,
+                                "name": "paprika",
+                                "localizedName": "paprika",
+                                "image": "paprika.jpg"
+                            },
+                            {
+                                "id": 1002030,
+                                "name": "pepper",
+                                "localizedName": "pepper",
+                                "image": "pepper.jpg"
+                            },
+                            {
+                                "id": 20081,
+                                "name": "all purpose flour",
+                                "localizedName": "all purpose flour",
+                                "image": "flour.png"
+                            },
+                            {
+                                "id": 2047,
+                                "name": "salt",
+                                "localizedName": "salt",
+                                "image": "salt.jpg"
+                            },
+                            {
+                                "id": 0,
+                                "name": "dip",
+                                "localizedName": "dip",
+                                "image": ""
+                            },
+                            {
+                                "id": 4582,
+                                "name": "cooking oil",
+                                "localizedName": "cooking oil",
+                                "image": "vegetable-oil.jpg"
+                            }
+                        ],
+                        "equipment": [],
+                        "length": {
+                            "number": 30,
+                            "unit": "minutes"
+                        }
+                    }
+                ]
+            }
+        ],
+        "originalId": null,
+        "spoonacularSourceUrl": "https://spoonacular.com/crispy-buttermilk-fried-chicken-640803"
+    })
     const [ ingredientList, setIngredientList] = useState([])
     const [ instructions, setInstructions ] = useState([])
 
     useEffect( async () => {
+        console.log(props.recipeId)
         await recipeFromId(props.recipeId)
         .then(async (res) => {
             console.log(recipe)

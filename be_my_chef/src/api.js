@@ -94,6 +94,7 @@ async function recipeFromId(id){
     .then(data => {
         temp = data
     })
+    console.log(temp)
     return temp
 }
 
