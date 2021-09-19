@@ -104,3 +104,18 @@
 .share-icon:hover{
     color: rgb(237, 231, 165);
 }
+
+.search-btn{
+    border: 2px solid rgb(238, 237, 225);
+    padding: 0.25rem 2rem;
+    border-radius: 0.25rem;
+    font-size: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(238, 237, 225);
+}
+
+.search-btn:active{
+    background: rgb(238, 237, 225);
+    color: black;
+}
