@@ -25,7 +25,9 @@
     width: 90%;
 }
 
-.main-flex{
+.main-flex-search{
+    display: flex;
+    flex-direction: column;
     padding-top: 1rem;
     align-items: center;
     justify-content: flex-start;

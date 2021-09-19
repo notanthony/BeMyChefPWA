@@ -17,6 +17,9 @@ export default function MyProfile(props) {
                 <h3 className='profile-desc'>
                     I love to cook in my free time.<br/> My favorite foods are broccoli and cherries.
                 </h3>
+                <Link className='search-btn' to='/survey'>
+                    Retake Survey
+                </Link>
                 <div className='favorites-div'>
                     <h1>Profile's Liked Recipes</h1>
                     {/*<div className='recipes-display'>*/}

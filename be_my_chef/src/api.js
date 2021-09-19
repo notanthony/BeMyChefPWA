@@ -1,6 +1,3 @@
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
 
 function arrayToAPIString(arr) {
     if (Array.isArray(arr)) {
@@ -12,6 +9,10 @@ function arrayToAPIString(arr) {
 // function complexSearch(){
 //     $.ajax({
 //         url : , 
+// function complexSearch(mealtype = "none", intolerances = "none", cuisine= "none", equipment="none", difficulty = 1){
+//     $.ajax({
+//         url : "https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
+//         "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&equipment=" + arrayToAPIString(equipment) + "&maxReadyTime=60", 
 //         success: function(res){
 //             var dict = res.results;
 //             //sorting in terms of the ready time, could be made more efficient if time permits
@@ -78,4 +79,4 @@ async function complexSearch(mealtype = "none", intolerances = "none", cuisine= 
     return ret;
 }
 
-export {ingredientsSearch, complexSearch}
+export {ingredientsSearch}

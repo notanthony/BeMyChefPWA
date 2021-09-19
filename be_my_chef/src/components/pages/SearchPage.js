@@ -3,12 +3,12 @@ import '../../styles/search.css'
 import MainHeader from '../global/MainHeader'
 import SearchField from "react-search-field";
 import SearchItem from '../global/SearchItem';
-import {ingredientsSearch, complexSearch} from '../../api'
+import {ingredientsSearch } from '../../api'
 
 
 export default function SearchPage(props) {
     console.log(props.preferences.data.intolerances)
-    const [dropdown, setDropdown ] = useState(1)
+    const [dropdown, setDropdown ] = useState(0)
     const mealTypes = [
         "main course",
         "side dish",
@@ -68,7 +68,7 @@ export default function SearchPage(props) {
             {
                 (props.searchType == 'complex')
                 &&
-                <div className='main-flex'>
+                <div className='main-flex-search'>
                     <SearchField
                         placeholder= "Enter the recipe name"
                         onEnter={props.searchfunction}
