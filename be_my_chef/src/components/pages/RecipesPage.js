@@ -482,6 +482,11 @@ export default function RecipesPage() {
                 title="Be My Chef App"
                 url="https://notanthony.github.io/LTDC/"
             />
+            <ShareButton
+                text="Share your recipes with your friends!"
+                title="Be My Chef App"
+                url="https://notanthony.github.io/LTDC/"
+            />
 
         </div>
         </div>

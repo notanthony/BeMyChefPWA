@@ -3,12 +3,14 @@ import '../../styles/search.css'
 import MainHeader from '../global/MainHeader'
 import SearchField from "react-search-field";
 import SearchItem from '../global/SearchItem';
-import {ingredientsSearch } from '../../api'
-
+import {ingredientsSearch, complexSearch} from '../../api'
+import {Route} from  'react-router-dom'
 
 export default function SearchPage(props) {
     console.log(props.preferences.data.intolerances)
     const [dropdown, setDropdown ] = useState(0)
+    
+    const [result, setResult] = useState()
     const mealTypes = [
         "main course",
         "side dish",
@@ -72,8 +74,12 @@ export default function SearchPage(props) {
                 <div className='main-flex-search'>
                     <SearchField
                         placeholder= "Enter the recipe name"
-                        onEnter={props.searchfunction}
-                        onSearchClick={props.searchfunction}
+                        onEnter={ async (value, event) => {
+                            setResult(await complexSearch(value, event))
+                        }}
+                        onEnter={ async (value) => {
+                            setResult(await complexSearch(value))
+                        }}
                         classNames="test-class"
                     />
                     <div className='search-btn-bar'>
@@ -176,8 +182,12 @@ export default function SearchPage(props) {
                     <label>Enter the ingredients you have</label>
                     <SearchField
                         placeholder= "apple,flour,sugar,etc."
-                        onEnter={(value, event) => ingredientsSearch(value, event)}
-                        onSearchClick={(value) => ingredientsSearch(value)}
+                        onEnter={ async (value, event) => {
+                            setResult(await ingredientsSearch(value, event))
+                        }}
+                        onEnter={ async (value) => {
+                            setResult(await ingredientsSearch(value))
+                        }}
                         classNames="test-class"
                     />
                 </div>
