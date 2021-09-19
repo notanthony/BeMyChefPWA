@@ -1,9 +1,12 @@
 
 function arrayToAPIString(arr) {
+    if (Array.length(arr) == 0) {
+        return "none"
+    }
     if (Array.isArray(arr)) {
         return arr.join(",")
     }
-    return arr
+    return "none"
   }
 
 // function complexSearch(){
@@ -40,10 +43,10 @@ function arrayToAPIString(arr) {
 //     return null 
 // }
 
-async function complexSearch(mealtype = [], intolerances = [], cuisine = [], equipment = []) {
+async function complexSearch(query, mealtype, intolerances, cuisine) {
     var ret;
-    await fetch("https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&mealtype=" + arrayToAPIString(mealtype) +
-    "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&equipment=" + arrayToAPIString(equipment) + "&maxReadyTime=60")
+    await fetch("https://api.spoonacular.com/recipes/search?apiKey=5d197e15a4b34ee7934de1fef766b366&query="+query+"&mealtype=" + arrayToAPIString(mealtype) +
+    "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&maxReadyTime=60")
     .then(response => response.json())
     .then(data => ret = data.results)
     return ret;
