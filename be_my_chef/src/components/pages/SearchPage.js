@@ -19,11 +19,15 @@ export default function SearchPage(props) {
     const [searchState1, setSearchState1] = useState('')
 
     function updateSearchState(){
+        console.log('test')
         setSearchState(document.getElementById('searchInput').value)
     }
+
     function updateSearchState1(){
-        setSearchState(document.getElementById('searchInput1').value)
+        console.log('updating')
+        setSearchState1(document.getElementById('searchInput1').value)
     }
+
     function intoleranceChange(){
         let arr1 = []
         let box1 = document.getElementsByName('intolerances')
@@ -121,9 +125,13 @@ export default function SearchPage(props) {
                 &&
                 <div className='main-flex-search'>
                     <SearchBar 
-                        id='searchInput'
-                        onChange={() => updateSearchState()}
+                        ID='searchInput'
+                        onChange={() => {
+                            updateSearchState()
+                            console.log('changes from first')
+                        }}
                         handleSubmit={async () => {
+                            console.log(searchState)
                             setResult(await complexSearch(searchState, mealTypeArr, intolerancesArr, cuisinesArr))
                         }}
                     />
@@ -229,12 +237,18 @@ export default function SearchPage(props) {
                     <label>Enter the ingredients you have</label>
 
                     <SearchBar 
-                        id='searchInput1'
-                        onChange={() => updateSearchState1()}
+                        ID='searchInput1'
+                        onChange={() => {
+                            console.log('changes')
+                            updateSearchState1()
+
+                        }}
                         handleSubmit={async () => {
+                            console.log(searchState1)
                             setResult(await ingredientsSearch(searchState1))
                         }}
                     />
+
                 </div>
             }
         </div>

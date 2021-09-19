@@ -13,14 +13,16 @@ export default function SearchBar(props) {
                 handleSubmit()
             }}>
                 <input 
+                    id={props.ID}
                     type='text'
                     background='white'
                     color='black'
+                    onChange={() => props.onChange()}
                 >
                 </input>
                 <button type='submit'>
                 <IoSearchOutline/>
-            
+
                 </button>
             </form>
 
