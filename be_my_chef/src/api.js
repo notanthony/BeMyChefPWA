@@ -54,6 +54,15 @@ async function complexSearch(query, mealtype, intolerances, cuisine) {
     return ret;
 }
 
+async function recipeInformation(id) {
+    var ret;
+    await fetch("https://api.spoonacular.com/recipes/"+id+"/information?apiKey=4995577f7d2b4f4d83adf858ceacd89b")
+    .then(response => response.json())
+    .then(data => ret = data.results)
+    console.log(ret)
+    return ret;
+}
+
 // ingredients search (minimum missing elements)
 // ingredients - array of ingredients
 async function ingredientsSearch(ingredients) {

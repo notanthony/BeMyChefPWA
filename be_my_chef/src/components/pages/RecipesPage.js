@@ -4,6 +4,7 @@ import ShareButton from '../global/Share'
 import {recipeFromId} from '../../api'
 import MainHeader from '../global/MainHeader'
 import '../../styles/recipe-display.css'
+import { SnapShareButton,ShareButton,InviteButton} from '../global/Share';
 
 
 export default function RecipesPage(props) {
@@ -187,8 +188,9 @@ export default function RecipesPage(props) {
                 title="Be My Chef App"
                 url="https://notanthony.github.io/LTDC/"
             />
-            <ShareButton
-                text="Share your recipes with your friends!"
+            <InviteButton
+            //hardcode for now
+                text={getMissingIngredientsText("abc,123,you,i,and")}
                 title="Be My Chef App"
                 url="https://notanthony.github.io/LTDC/"
             />
@@ -201,11 +203,11 @@ export default function RecipesPage(props) {
     )
 }
 
-function getMissingIngredientsText(ingredients, link) {
+function getMissingIngredientsText(ingredientsStr) {
+   const ingredients = ingredientsStr.split(",")
     var str = "Someone has just invited you to cook with them! They are missing the following ingredients: \n";
     for(var i = 0; i < ingredients.length; ++i) {
         str += "☐ " + ingredients[i].name + "\n";
     }
-    str += "See the full recipe here: " + link;
     return str;
 }
