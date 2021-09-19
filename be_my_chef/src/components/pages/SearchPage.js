@@ -3,6 +3,7 @@ import '../../styles/search.css'
 import MainHeader from '../global/MainHeader'
 import SearchField from "react-search-field";
 import SearchItem from '../global/SearchItem';
+import SearchBar from '../global/SearchBar'
 import {ingredientsSearch, complexSearch} from '../../api'
 import {Route} from  'react-router-dom'
 
@@ -14,7 +15,15 @@ export default function SearchPage(props) {
     const [intolerancesArr, setIntolerancesArr] = useState(props.preferences.data.intolerances)
     const [cuisinesArr, setCuisinesArr ] = useState(props.preferences.data.cuisine)
     const [mealTypeArr, setMealTypeArr] = useState([])
+    const [searchState, setSearchState] = useState('')
+    const [searchState1, setSearchState1] = useState('')
 
+    function updateSearchState(){
+        setSearchState(document.getElementById('searchInput').value)
+    }
+    function updateSearchState1(){
+        setSearchState(document.getElementById('searchInput1').value)
+    }
     function intoleranceChange(){
         let arr1 = []
         let box1 = document.getElementsByName('intolerances')
@@ -111,17 +120,12 @@ export default function SearchPage(props) {
                 (props.searchType == 'complex')
                 &&
                 <div className='main-flex-search'>
-                    <SearchField
-                        placeholder= "Enter the recipe name"
-                        onEnter={ async (value, event) => {
-                           
-                            console.log('>')
-                            setResult(await complexSearch(value, mealTypeArr, intolerancesArr, cuisinesArr, event))
+                    <SearchBar 
+                        id='searchInput'
+                        onChange={() => updateSearchState()}
+                        handleSubmit={async () => {
+                            setResult(await complexSearch(searchState, mealTypeArr, intolerancesArr, cuisinesArr))
                         }}
-                        onSearchClick={ async (value) => {
-                            setResult(await complexSearch(value))
-                        }}
-                        classNames="test-class"
                     />
                     <div className='search-btn-bar'>
                         <div 
@@ -223,15 +227,13 @@ export default function SearchPage(props) {
                 &&
                 <div className='main-flex-search'>
                     <label>Enter the ingredients you have</label>
-                    <SearchField
-                        placeholder= "apple,flour,sugar,etc."
-                        onEnter={ async (value, event) => {
-                            setResult(await ingredientsSearch(value, event))
+
+                    <SearchBar 
+                        id='searchInput1'
+                        onChange={() => updateSearchState1()}
+                        handleSubmit={async () => {
+                            setResult(await ingredientsSearch(searchState1))
                         }}
-                        onClick={ async (value) => {
-                            setResult(await ingredientsSearch(value))
-                        }}
-                        classNames="test-class"
                     />
                 </div>
             }

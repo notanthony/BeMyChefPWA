@@ -1,0 +1,8 @@
+.search-bar-div > form{
+    display: flex;
+}
+
+.search-bar-div > form > input{
+    height: 2rem;
+    
+}

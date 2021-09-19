@@ -1,9 +1,10 @@
 
 function arrayToAPIString(arr) {
-    if (Array.length(arr) == 0) {
-        return "none"
-    }
+    
     if (Array.isArray(arr)) {
+        if (arr.length == 0) {
+            return "none"
+        }
         return arr.join(",")
     }
     return "none"
@@ -57,7 +58,7 @@ async function complexSearch(query, mealtype, intolerances, cuisine) {
 // ingredients - array of ingredients
 async function ingredientsSearch(ingredients) {
     var recipes, ret = [];
-    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + ingredients + "&ranking=2&number=1")
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=4995577f7d2b4f4d83adf858ceacd89b&ingredients=" + ingredients + "&ranking=2&number=1")
     .then(response => response.json())
     .then(async data => {
         recipes = data
