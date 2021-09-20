@@ -46,7 +46,7 @@ function arrayToAPIString(arr) {
 
 async function complexSearch(query, mealtype, intolerances, cuisine) {
     var ret;
-    await fetch("https://api.spoonacular.com/recipes/search?apiKey=6d154cf654784c3cb613c9b2aa8fe72f&query="+query+"&mealtype=" + arrayToAPIString(mealtype) +
+    await fetch("https://api.spoonacular.com/recipes/search?apiKey=8ac346554dc44c8097decebc24bbcaec&query="+query+"&mealtype=" + arrayToAPIString(mealtype) +
     "&intolerances=" + arrayToAPIString(intolerances) + "&cuisine=" + arrayToAPIString(cuisine) + "&maxReadyTime=60")
     .then(response => response.json())
     .then(data => ret = data.results)
@@ -56,7 +56,7 @@ async function complexSearch(query, mealtype, intolerances, cuisine) {
 
 async function recipeInformation(id) {
     var ret;
-    await fetch("https://api.spoonacular.com/recipes/"+id+"/information?apiKey=6d154cf654784c3cb613c9b2aa8fe72f")
+    await fetch("https://api.spoonacular.com/recipes/"+id+"/information?apiKey=8ac346554dc44c8097decebc24bbcaec")
     .then(response => response.json())
     .then(data => ret = data.results)
     console.log(ret)
@@ -67,14 +67,14 @@ async function recipeInformation(id) {
 // ingredients - array of ingredients
 async function ingredientsSearch(ingredients) {
     var recipes, ret = [];
-    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=6d154cf654784c3cb613c9b2aa8fe72f&ingredients=" + ingredients + "&ranking=2&number=1")
+    await fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ac346554dc44c8097decebc24bbcaec&ingredients=" + ingredients + "&ranking=2&number=5")
     .then(response => response.json())
     .then(async data => {
         recipes = data
         for(var r of recipes) {
             var missedIngredientsPrice = 0;
             await Promise.all(r.missedIngredients.map(async i => {
-                await fetch("https://api.spoonacular.com/food/ingredients/" + i.id + "/information?apiKey=6d154cf654784c3cb613c9b2aa8fe72f&amount=" + i.amount)
+                await fetch("https://api.spoonacular.com/food/ingredients/" + i.id + "/information?apiKey=8ac346554dc44c8097decebc24bbcaec&amount=" + i.amount)
                 .then(response => response.json())
                 .then(data => {missedIngredientsPrice += data.estimatedCost.value})
             }))
@@ -89,7 +89,7 @@ async function ingredientsSearch(ingredients) {
 async function recipeFromId(id){
     let temp
     console.log(id)
-    await fetch('https://api.spoonacular.com/recipes/'+id+'/information?apiKey=6d154cf654784c3cb613c9b2aa8fe72f')
+    await fetch('https://api.spoonacular.com/recipes/'+id+'/information?apiKey=8ac346554dc44c8097decebc24bbcaec')
     .then(res => res.json())
     .then(data => {
         temp = data
