@@ -1,6 +1,6 @@
 # Be My Chef
 
-**Morgan Stanley 2021 Code to Give MTL Hackathon – Track C: La Tablée des Chefs**
+**Morgan Stanley 2021 Code to Give MTL Hackathon – Track C: La Tablée des Chefs, Team 5**
 
 Be My Chef is a novel, exciting, and educational app made to inspire the youth of today to lead the culinary world of tomorrow.
 
