@@ -2,6 +2,13 @@
 
 Be My Chef is a novel, exciting, and educational app made to inspire the youth of today to lead the culinary world of tomorrow.
 
+## Table of Contents
+* [The Issue](#the-issue)
+* [Our Magic Solution](#our-magic-solution)
+* [How It Works](#how-it-works)
+* [Recommendations for Implementation](#recommendations-for-implementation)
+* [Next Steps — Future Features and Recommendations](#next-steps--future-features-and-recommendations)
+
 ## The Issue
 
 Food and nutrition is a vital part of leading a happy, healthy life. As young adults, we have all experienced the barriers today's youth face when trying to cook for themselves. We designed Be My Chef to break down these barriers by providing the next generation the education and tools they need to develop their food autonomy.
