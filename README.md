@@ -1,5 +1,7 @@
 # Be My Chef
 
+**Morgan Stanley 2021 Code to Give MTL Hackathon – Track C: La Tablée des Chefs**
+
 Be My Chef is a novel, exciting, and educational app made to inspire the youth of today to lead the culinary world of tomorrow.
 
 ## Table of Contents
@@ -8,6 +10,7 @@ Be My Chef is a novel, exciting, and educational app made to inspire the youth o
 * [How It Works](#how-it-works)
 * [Recommendations for Implementation](#recommendations-for-implementation)
 * [Next Steps — Future Features and Recommendations](#next-steps--future-features-and-recommendations)
+* [Our Team](#our-team)
 
 ## The Issue
 
@@ -56,3 +59,12 @@ Our application is based on React. With the help of React Native, it can be rele
 * Have a more integrated online connection with chat features.
 * An interactive "Featured Recipe" stream lead by a professional chef.
 * TikTok-style cooking tips for further social media integration.
+
+## Our Team
+* Anthony Zhao
+* Eric Zhang
+* Jessica Yang
+* Zhekai Jiang
+* Frédéric Pelletier
+* Jia Ming Wei
+* Team Mentor: Louis Waked
